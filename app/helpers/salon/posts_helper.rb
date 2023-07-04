@@ -1,0 +1,2 @@
+module Salon::PostsHelper
+end
