@@ -10,6 +10,13 @@ Rails.application.routes.draw do
 scope module: :user do
   root to: "homes#top"
   get "users/mypage" => "users#show", as: "mypage"
+  get 'users/information/edit' => 'users#edit', as: 'edit_information'
+  patch 'users/information' => 'users#update', as: 'update_information'
+  get 'users/quit' => 'users#quit', as: 'confirm_quit'
+  put 'users/information' => 'users#update'
+  patch 'users/out' => 'users#out', as: 'out_user'
+  resources :posts, only: [:index, :show]
+  resources :menus, only: [:index, :show]
 end
 
 # サロン用
@@ -18,9 +25,15 @@ devise_for :salons,skip: [:passwords], controllers: {
   sessions: 'salon/sessions'
 }
 
-namespace :salons do
+namespace :salon do
   root to: "homes#top"
-  get "salons/salonpage" =>"salons#show", as: "salonpage"
+  get 'users/:user_id/resarvations' => 'resarvations#index', as: 'user_resarvations'
+  get "salons/mypage" =>"salons#show", as: "mypage"
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  #resources :resarvations, only: [:show, :update]
+  resources :resarvations_details, only: [:update]
+  resources :users, only: [:show]
 end
 
 # 管理者用
@@ -31,5 +44,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
   root to: "homes#top"
+  resources :posts, only: [:index, :show]
+  resources :menus, only: [:index, :show]
+  #resources :resarvations, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update]
+  resources :salons, only: [:index, :show, :edit, :update]
 end
 end
