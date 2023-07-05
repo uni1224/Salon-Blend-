@@ -15,7 +15,11 @@
       <tbody>
         <tr>  
           <td><%= f.label :name,"サロン名" %></td>
-          <td colspan="2"><%= f.text_field :name, :placeholder =>"サロン"  %></td>
+          <td colspan="2"><%= f.text_field :name, :placeholder =>"サロンの名前"  %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :introduction, "紹介文"%></td>
+          <td colspan="2"><%= f.text_area :introduction, :placeholder =>"サロンの紹介文を入力してください" %></td>
         </tr>
         <tr>
           <td><%= f.label :email,"メールアドレス" %></td>
