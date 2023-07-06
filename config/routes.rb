@@ -29,6 +29,11 @@ namespace :salon do
   root to: "homes#top"
   get 'users/:user_id/resarvations' => 'resarvations#index', as: 'user_resarvations'
   get "salons/mypage" =>"salons#show", as: "mypage"
+  get 'salons/information/edit' => 'salons#edit', as: 'edit_information'
+  patch 'salons/information' => 'salons#update', as: 'update_information'
+  get 'salons/quit' => 'salons#quit', as: 'confirm_quit'
+  put 'salons/information' => 'salons#update'
+  patch 'salons/out' => 'salons#out', as: 'out_salon'
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   #resources :resarvations, only: [:show, :update]

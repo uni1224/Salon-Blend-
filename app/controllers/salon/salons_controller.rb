@@ -1,26 +1,32 @@
 class Salon::SalonsController < ApplicationController
-     def show
-        @salon= Salon.find(current_salon.id)
-     end
+  before_action :authenticate_salon!
+  before_action :set_current_salon
 
-     def new
-        @salon = Salon.new
-     end
+  def show
+  end
 
-     def create
-        @salon = Salon.find(params[:id])
-        @salon.save
+  def edit
+  end
 
-     end
-     
-     def update
-        @salon = Salon.find(current_salon.id)
-        @salon.update(salon_params)
-        redirect_to salons_mypage_path
-        flash[:notice] = "変更が完了しました"
-     end
+  def update
+      if @salon.update(salon_params)
+      redirect_to salon_mypage_path, notice: '会員情報の更新が完了しました。'
+      else
+      render :edit
+      end
+  end
 
+  def unsubscribe
+  end
 
+  def withdraw
+  end
+
+  private
+
+  def set_current_salon
+    @salon = current_salon
+  end
     private
     def salon_params
     params.require(:salon).permit(:name, :introduction, :email, :postal_code, :address, :phone_number)

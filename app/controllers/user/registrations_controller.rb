@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   def after_sign_up_path_for(resource)
    mypage_path
@@ -51,6 +51,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+  def after_sign_up_path_for(resource)
+   mypage_path
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
@@ -61,4 +64,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number])
+  end
 end

@@ -1,30 +1,28 @@
 class User::UsersController < ApplicationController
 
-    def show
-        @user= User.find(current_user.id)
-    end
+  before_action :authenticate_user!
+  before_action :set_current_user
 
-    def new
-        @user = User.new
-    end
+  def show
+  end
 
-    def create
-        @user = User.find(params[:id])
-        @user.save
-    end
-    
-    def edit
-        @user = User.find(current_user.id)
-    end
+  def edit
+  end
 
-     def update
-        @user = User.find(current_user.id)
-        @user.update(user_params)
-        redirect_to users_mypage_path
-        flash[:notice] = "変更が完了しました"
-     end
+  def update
+  end
 
+  def unsubscribe
+  end
 
+  def withdraw
+  end
+
+  private
+
+  def set_current_user
+    @user = current_user
+  end
     private
     def user_params
     params.require(:user).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :phone_number)
