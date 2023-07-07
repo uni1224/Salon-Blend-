@@ -18,6 +18,7 @@ scope module: :user do
   resources :posts, only: [:index, :show]
   resources :menus, only: [:index, :show]
   resources :reservations
+  resources :salons,only: [:index, :show]
 end
 
 # サロン用
