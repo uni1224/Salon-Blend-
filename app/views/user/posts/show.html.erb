@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="col-md-10 mx-auto mt-5">
+
+    <div class="row justify-content-center mb-5">
+    <div class="col-md-4 headline">
+
+     <h4>投稿詳細</h4>
+    </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+
+    <div class="col-md 4d-flex text-center justify-content-center align-items-center">
+
+     <%#= image_tag @menu.image, size: "200x200" %>
+</div>
+    <div class="col-md-8 d-flex justify-content-center mr-5"  style="background-color: #dcdcdc;" >
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 25%"></th>
+          <th scope="col" style="width: 75%"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>メニュー名</td>
+        <td><%= @post.title %></td>
+      </tr>
+      <tr>
+        <td>メニュー説明</td>
+        <td><%= @post.body %></td>
+      </tr>
+         <td> 税抜価格 </br>
+             (税込価格)
+         </td>
+         <td valign="middle">
+             <%#=@menu.add_tax_price.to_s(:delimited)%>
+               ￥<%#= p @menu.price.to_s(:delimited) %>(<%#= @menu.tax_price %>)</td>
+      </tr>
+     </tbody>
+    </table>
+    </div>
+
+
+  </div>
+   <div class=" mt-3 text-center">
+      <%= link_to "編集する", edit_salon_post_path(@post.id), class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
+      </div>
+  </div>
+</div>

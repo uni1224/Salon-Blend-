@@ -17,6 +17,7 @@ scope module: :user do
   patch 'users/out' => 'users#out', as: 'out_user'
   resources :posts, only: [:index, :show]
   resources :menus, only: [:index, :show]
+  resources :reservations
 end
 
 # サロン用

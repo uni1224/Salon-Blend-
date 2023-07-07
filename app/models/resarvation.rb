@@ -1,2 +1,0 @@
-class Resarvation < ApplicationRecord
-end
