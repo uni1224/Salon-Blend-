@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   
-  
+  belongs_to :user
+  belongs_to :menu
   
   def self.check_reservation_day(day)
     if day < Date.current

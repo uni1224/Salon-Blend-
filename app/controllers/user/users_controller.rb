@@ -12,10 +12,13 @@ class User::UsersController < ApplicationController
   def update
   end
 
-  def unsubscribe
+  def quit
   end
-
-  def withdraw
+  
+  def out
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private

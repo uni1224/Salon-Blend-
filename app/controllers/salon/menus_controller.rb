@@ -14,7 +14,7 @@ class Salon::MenusController < ApplicationController
     def create
         @menu = Menu.new(menu_params)
         if @menu.save
-            redirect_to salon_menu_path(@menu.id),notice: "メニューの登録が完了しました"
+            redirect_to salon_menus_path(@menu.id),notice: "メニューの登録が完了しました"
         else
             render :new
         end
@@ -35,6 +35,6 @@ class Salon::MenusController < ApplicationController
 
     private
     def menu_params
-        params.require(:menu).permit(:title, :body, :image)
+        params.require(:menu).permit(:title, :description, :price, :image)
     end
 end

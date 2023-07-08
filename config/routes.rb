@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 scope module: :user do
   root to: "homes#top"
+  get "users/about" => "homes#about", as: "about"
   get "users/mypage" => "users#show", as: "mypage"
   get 'users/information/edit' => 'users#edit', as: 'edit_information'
   patch 'users/information' => 'users#update', as: 'update_information'
@@ -18,7 +19,6 @@ scope module: :user do
   resources :posts, only: [:index, :show]
   resources :menus, only: [:index, :show]
   resources :reservations
-  resources :salons,only: [:index, :show]
 end
 
 # サロン用
@@ -38,8 +38,8 @@ namespace :salon do
   patch 'salons/out' => 'salons#out', as: 'out_salon'
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  #resources :resarvations, only: [:show, :update]
-  resources :resarvations_details, only: [:update]
+  resources :reservations
+  resources :reservations_details, only: [:update]
   resources :users, only: [:show]
 end
 

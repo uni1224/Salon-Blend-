@@ -1,6 +1,6 @@
 class Menu < ApplicationRecord
     has_one_attached :image
-    
+    has_many :reservation
     belongs_to :salon
 
     def tax_price

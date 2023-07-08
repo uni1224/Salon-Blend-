@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+         has_many :reservation
+         scope :only_active, -> { where(is_deleted: false) }
+         
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }

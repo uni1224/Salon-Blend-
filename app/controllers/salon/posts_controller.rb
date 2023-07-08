@@ -1,7 +1,6 @@
 class Salon::PostsController < ApplicationController
     def index
         @posts = Post.all
-        @salon = Salon.find_by(params[:salon_id])
     end
 
     def show
