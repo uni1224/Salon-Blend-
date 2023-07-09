@@ -1,5 +1,7 @@
 class Reservation < ApplicationRecord
   
+  has_many :user
+  has_many :menu
   belongs_to :user
   belongs_to :menu
   

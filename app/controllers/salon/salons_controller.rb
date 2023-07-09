@@ -16,10 +16,10 @@ class Salon::SalonsController < ApplicationController
       end
   end
 
-  def unsubscribe
+  def quit
   end
 
-  def withdraw
+  def out
   end
 
   private

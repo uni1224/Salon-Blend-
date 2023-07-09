@@ -15,8 +15,9 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.name %></td>
-        <td><%= reservation.start_time %></td>
+        <td><%= reservation.user_id %><%= reservation.user.last_name %><%= reservation.user.first_name %></td>
+        <td><%= reservation.menu_id %></td>
+        <td><%= l reservation.start_time %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,13 +29,13 @@
 <br>
 
 <!-- ここから --!>
-<%= wee_calendar events: @reservations do |date, reservations| %>
+<%= month_calendar events: @reservations do |date, reservations| %>
   <%= date %>
 
   <% reservations.each do |reservation| %>
     <div>
-      <%= reservation.day %><%= reservation.time %>
-      <%= reservation.name %>
+      <%= l reservation.start_time %>
+      <%= reservation.user_id %>
     </div>
   <% end %>
 <% end %>

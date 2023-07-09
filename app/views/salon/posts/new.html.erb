@@ -10,8 +10,8 @@
     <%#= render 'layouts/errors', obj: @item %>
   <div class="col-8 mx-auto form-group">
 <tr>
-    <td>商品画像</td>
-<td><%#= f.file_field :image, accept: "image/*" %></td>
+    <td>画像</td>
+<td><%= f.file_field :image, accept: "image/*" %></td>
 </tr>
 <tr>
     <td>タイトル</td>
