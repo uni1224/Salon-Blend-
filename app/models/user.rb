@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-         has_many :reservation
+         has_many :reservation, dependent: :destroy
          scope :only_active, -> { where(is_deleted: false) }
          
   validates :last_name, presence: true

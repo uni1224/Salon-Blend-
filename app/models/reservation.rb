@@ -1,11 +1,12 @@
 class Reservation < ApplicationRecord
   
-  has_many :user
-  has_many :menu
-  belongs_to :user
-  belongs_to :menu
+   belongs_to :user
   
-  def self.check_reservation_day(day)
+  # validate :date_before_start
+  # validate :date_current_today
+  # validate :date_three_month_end
+  
+ def self.check_reservation_day(day)
     if day < Date.current
       return "過去の日付は選択できません。正しい日付を選択してください。"
     elsif day < (Date.current + 1)
@@ -14,7 +15,6 @@ class Reservation < ApplicationRecord
       return "3ヶ月以降の日付は選択できません。正しい日付を選択してください。"
     end
   end
-
     def self.reservations_after_three_month
     # 今日から3ヶ月先までのデータを取得
     reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
@@ -26,7 +26,5 @@ class Reservation < ApplicationRecord
       reservations_hash.merge!(day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time)
       reservation_data.push(reservations_hash)
     end
-    reservation_data
-    end
-   end
-   
+  end
+end

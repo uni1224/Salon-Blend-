@@ -1,13 +1,13 @@
 class User::ReservationsController < ApplicationController
+ 
     def index
-    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+   @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
     end
 
     def new
     @reservation = Reservation.new
     @day = params[:day]
     @time = params[:time]
-    @menu = Menu.find_by(params[:id])
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
     message = Reservation.check_reservation_day(@day.to_date)
     if !!message
@@ -41,7 +41,9 @@ class User::ReservationsController < ApplicationController
 
 
   private
+  
+
   def reservation_params
-    params.require(:reservation).permit(:day, :time, :user_id, :menu_id, :start_time)
+    params.require(:reservation).permit(:day, :time, :user_id, :start_time)
   end
 end

@@ -1,4 +1,12 @@
-
+.wday-0 a {
+  color: red;
+}
+.wday-6 a {
+   color: blue;
+} 
+.past a {
+  color: gray;
+}
 
 /*
 *= require simple_calendar

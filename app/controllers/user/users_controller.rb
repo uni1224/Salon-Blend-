@@ -4,6 +4,8 @@ class User::UsersController < ApplicationController
   before_action :set_current_user
 
   def show
+    @user_reservations = current_user.reservation.where("start_time >= ?", DateTime.current).order(day: :desc)
+    @visit_historys = current_user.reservation.where("start_time < ?", DateTime.current).where("start_time > ?", DateTime.current << 12).order(day: :desc)
   end
 
   def edit

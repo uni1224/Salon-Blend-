@@ -32,6 +32,59 @@
               <th>住所</th>
                <td><%= @user.address %></td>
          </tr>
+          <div class="col-12 mt-3 text-center mx-auto">
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">予約日</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_reservations.each do |user_reservation| %>
+              <td>
+                <%= l user_reservation.start_time %>              
+              </td>
+            </tr>             
+            <% end %>
+            <% if @user_reservations.blank? %>
+              <tr>
+                <td>予約はありません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 mt-3 text-center mx-auto">
+        <h3>来院履歴</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">予約日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @visit_historys.each do |visit_history| %>
+              <tr>
+                <td>
+                  
+                  <%= l visit_history.start_time %>              
+                </td>
+              </tr>
+            <% end %>
+            <% if @visit_historys.blank? %>
+              <tr>
+                <td>来院履歴はありません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
       </tbody>
     </table>
       </div>
