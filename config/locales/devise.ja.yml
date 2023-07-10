@@ -2,6 +2,7 @@ ja:
   activerecord:
     attributes:
       user:
+      salon:
         last_name: 姓
         last_name_kana: セイ
         first_name: 名
@@ -9,6 +10,8 @@ ja:
         postal_code: 郵便番号
         address: 住所
         phone_number: 電話番号
+        name: サロン名
+        introduction: 紹介文
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -32,6 +35,7 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+    
     models:
       user: ユーザー
   devise:
