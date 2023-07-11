@@ -2,6 +2,11 @@ class Menu < ApplicationRecord
     has_one_attached :image
     belongs_to :salon
     
+    validates :title, presence: true
+    validates :description, presence: true
+    validates :image, presence: true
+    
+    
 
     def tax_price
    (price * 1.1).floor

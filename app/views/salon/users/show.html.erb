@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="title pt-4 ml-5">
+      <h3 class="text-center bg-light"><%= "#{@user.last_name}#{@user.first_name}さんの会員情報" %></h3>
+    </div>
+  </div>
+  <div class="row pl-5">
+    <div class="col-8">
+    <table class="table table-borderless">
+      <tr>
+        <th>会員ID</th>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <td><%= @user.last_name %><%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= @user.last_name_kana %><%= @user.first_name_kana %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= @user.postal_code %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @user.address %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= @user.phone_number %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>会員ステータス</th>
+        <% if @user.is_deleted == false %>
+          <td class="text-success">有効</td>
+        <% else %>
+          <td class="text-secondary">退会</td>
+        <% end %>
+      </tr>
+    </table>
+    </div>
+  </div>
+  <div class="text-center">
+        <%= link_to "編集する", edit_salon_user_path(@user.id), class: "btn btn-success" %>
+        <%= link_to "予約履歴一覧を見る", reservation_path(@user_reservations), class: "btn btn-primary" %>
+  </div>
+</div>

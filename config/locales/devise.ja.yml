@@ -2,7 +2,6 @@ ja:
   activerecord:
     attributes:
       user:
-      salon:
         last_name: 姓
         last_name_kana: セイ
         first_name: 名

@@ -40,7 +40,7 @@ namespace :salon do
   resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :reservations
   resources :reservations_details, only: [:update]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index, :edit, :update]
 end
 
 # 管理者用

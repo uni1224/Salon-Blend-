@@ -12,11 +12,16 @@ class User::UsersController < ApplicationController
   end
 
   def update
+     if @user.update(user_params)
+      redirect_to mypage_path, success: '会員情報の更新が完了しました。'
+     else
+      render :edit
+     end
   end
 
   def quit
   end
-  
+
   def out
     @customer.update(is_deleted: true)
     reset_session
