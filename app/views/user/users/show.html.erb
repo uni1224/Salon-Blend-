@@ -44,7 +44,7 @@
           <tbody>
             <% @user_reservations.each do |user_reservation| %>
               <td>
-                <%= l user_reservation.start_time %>              
+                <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>              
               </td>
             </tr>             
             <% end %>
@@ -69,7 +69,7 @@
               <tr>
                 <td>
                   
-                  <%= l visit_history.start_time %>              
+                  <%=  visit_history.day.strftime("%Y年%m月%d日(%a)") %><%=  visit_history.time.strftime("%H:%M") %>               
                 </td>
               </tr>
             <% end %>

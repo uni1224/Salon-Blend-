@@ -1,17 +1,20 @@
-<!-- show.html.erb -->
 <div class="container">
   <div class="row">
     <div class="col-12 text-center title">
       <h1>予約詳細画面</h1>
     </div>
-    <div class="col-12 mt-3 text-center content">
+     <div class="col-12 mt-3 text-center content">
+      <div>
+        <label><strong>名前：</strong></label>
+        <p style="display:inline;"><%= @reservation.user.last_name %><%= @reservation.user.first_name %></p>
+      </div>
       <div>
         <label><strong>日付：</strong></label>
-        <p style="display:inline;"><%= @reservation.day %></p>
+        <p style="display:inline;"><%=  @reservation.day.strftime("%Y年%m月%d日(%a)")%></p>
       </div>
       <div>
         <label><strong>時間：</strong></label>
-        <p style="display:inline;"><%= @reservation.start_time %></p>
+        <p style="display:inline;"><%=  @reservation.time.strftime( "%H:%M" ) %></p>
       </div>
     </div>
     <div class="col-12 text-right">
