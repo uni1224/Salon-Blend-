@@ -23,7 +23,7 @@ class User::UsersController < ApplicationController
   end
 
   def out
-    @customer.update(is_deleted: true)
+    @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end

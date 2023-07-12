@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   registrations: "user/registrations",
   sessions: 'user/sessions'
 }
+devise_scope :user do
+    post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
+  end
 
 scope module: :user do
   root to: "homes#top"
@@ -53,6 +56,7 @@ namespace :admin do
   root to: "homes#top"
   resources :posts, only: [:index, :show]
   resources :menus, only: [:index, :show]
+  #resources :resarvations, only: [:index, :show]
   #resources :resarvations, only: [:index, :show]
   resources :users, only: [:index, :show, :edit, :update]
   resources :salons, only: [:index, :show, :edit, :update]
