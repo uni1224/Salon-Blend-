@@ -6,7 +6,7 @@
   <h5 class="ml-5 mb-5"><span class="title-custom px-4">投稿編集</span></h5>
 
       <table class="table table-borderless">
-    <%#= render 'layouts/errors', obj: @item %>
+    <%= render 'layouts/error', obj: @post %>
         <div class="col-8 mx-auto form-group">
          <tr>
             <td>商品画像</td>
@@ -16,10 +16,10 @@
             <td>タイトル</td>
             <td> <%= f.text_field :title, placeholder:"タイトルを入力してください", class: "form-control" %></td></tr>
          <tr>
-            <td>説明</td>
-            <td> <%= f.text_area :description, placeholder:"説明を入力してください", class: "form-control"%></td>
+            <td>内容</td>
+            <td> <%= f.text_area :description, placeholder:"内容を入力してください", class: "form-control"%></td>
          </tr>
-         
+
 
     <!--登録ボタン-->
             <td><%= f.submit '新規登録' ,class:"btn btn-success" %></td>

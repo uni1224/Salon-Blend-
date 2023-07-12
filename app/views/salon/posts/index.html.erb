@@ -2,18 +2,17 @@
   <div class="row mt-4">
     <div class="col-md-3 col-sm-3">
        <h4 class="ml-5 mb-5"><span class="title-custom px-4">投稿一覧</span></h4>
+       <%= link_to "追加", new_salon_post_path , class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
 
         </div>
  <table class="table table-striped">
      <tr>
-     <th>投稿ID</th>
      <th>投稿タイトル</th>
      <th>投稿内容</th>
      </tr>
  <% @posts.each do |post| %>
  <tr>
- <td><%= post.id %></td>
- <td><%= post.title %></td>
+ <td><%= link_to post.title, salon_post_path(post) %></td>
  <td><%= post.body %></td>
  </tr>
 <%end%>
@@ -23,4 +22,5 @@
          </div>
 
  </div>
+
 

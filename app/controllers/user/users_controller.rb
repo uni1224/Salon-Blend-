@@ -27,6 +27,22 @@ class User::UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+   def destroy_confirm
+    @user = current_user
+   end
+
+  def destroy_user
+    @user = current_user
+    if @user.email == 'guestda@example.com'
+      reset_session
+      redirect_to :root
+    else
+      @user.update(is_valid: false)
+      reset_session
+      redirect_to :root
+    end
+  end
 
   private
 
