@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
          has_many :reservation, dependent: :destroy
          has_many :comments, dependent: :destroy
-         has_many :likes
+         has_many :likes,dependent: :destroy
+         has_many :messages, dependent: :destroy
+
          scope :only_active, -> { where(is_deleted: false) }
 
          # 以下を追加

@@ -26,6 +26,9 @@ scope module: :user do
     resources :comments,only:[:create, :destroy]
   end
   resources :reservations
+  resources :rooms, only: %i(index show)
+  resource :message, only: :create
+
 end
 # サロン用
 devise_for :salons,skip: [:passwords], controllers: {
@@ -47,6 +50,8 @@ namespace :salon do
   resources :reservations
   resources :reservations_details, only: [:update]
   resources :users, only: [:show, :index, :edit, :update]
+  resources :rooms, only: %i(index show)
+  resource :message, only: :create
 end
 
 # 管理者用

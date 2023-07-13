@@ -1,0 +1,2 @@
+module Salon::MessagesHelper
+end

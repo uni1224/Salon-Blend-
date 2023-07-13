@@ -1,0 +1,8 @@
+<div>サロンチャットルームの一覧</div>
+<% @reservations.each do |reservation| %>
+  <div>
+    <%= reservation.user.last_name %><%= reservation.user.first_name %>
+    <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %>
+    <%= link_to "DM", salon_room_path(reservation) %>
+  </div>
+<% end %>

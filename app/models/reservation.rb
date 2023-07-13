@@ -1,6 +1,8 @@
 class Reservation < ApplicationRecord
   
    belongs_to :user
+   has_one :room, dependent: :destroy
+
   
 
   #validate :date_before_start
