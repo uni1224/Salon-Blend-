@@ -12,7 +12,7 @@ devise_scope :user do
 
 scope module: :user do
   root to: "homes#top"
-  post 'like/:id' => 'likes#create', as: 'create_like' 
+  post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
   get "users/about" => "homes#about", as: "about"
   get "users/mypage" => "users#show", as: "mypage"
@@ -22,12 +22,12 @@ scope module: :user do
   put 'users/information' => 'users#update'
   patch 'users/out' => 'users#out', as: 'out_user'
   resources :menus, only: [:index, :show]
-  resources :posts, only: [:index, :show] do
-    resources :comments,only:[:create, :destroy]
-  end
   resources :reservations
   resources :rooms, only: %i(index show)
   resource :message, only: :create
+  resources :posts, only: [:index, :show] do
+    resources :comments,only:[:create, :destroy]
+  end
 
 end
 # サロン用
@@ -45,7 +45,9 @@ namespace :salon do
   get 'salons/quit' => 'salons#quit', as: 'confirm_quit'
   put 'salons/information' => 'salons#update'
   patch 'salons/out' => 'salons#out', as: 'out_salon'
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :comments,only:[:create, :destroy]
+  end
   resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :reservations
   resources :reservations_details, only: [:update]

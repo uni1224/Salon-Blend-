@@ -33,7 +33,7 @@
                <td><%= @user.address %></td>
          </tr>
           <div class="col-12 mt-3 text-center mx-auto">
-        
+
         <table class="table">
           <thead>
             <tr>
@@ -44,9 +44,9 @@
           <tbody>
             <% @user_reservations.each do |user_reservation| %>
               <td>
-                <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>              
+                <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>
               </td>
-            </tr>             
+            </tr>
             <% end %>
             <% if @user_reservations.blank? %>
               <tr>
@@ -68,8 +68,8 @@
             <% @visit_historys.each do |visit_history| %>
               <tr>
                 <td>
-                  
-                  <%=  visit_history.day.strftime("%Y年%m月%d日(%a)") %><%=  visit_history.time.strftime("%H:%M") %>               
+
+                  <%=  visit_history.day.strftime("%Y年%m月%d日(%a)") %><%=  visit_history.time.strftime("%H:%M") %>
                 </td>
               </tr>
             <% end %>

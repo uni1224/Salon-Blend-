@@ -37,26 +37,8 @@
      </tbody>
     </table>
     </div>
-    <div id="comments-area"><%= form_with model:[@post,@comment] do |f| %>
-<%= f.text_area :comment, placeholder: "コメントをここに" %>
-<%= f.submit "送信" %>
-<% end %><%# render "comments/comment_form", post: @post,comment: @comment %></div>
-<table>
-  <tbody>
-    <% @post.comments.each do |comment| %>
-    <tr>
-      <td><%= comment.user.first_name %></td>
-      <td><%= comment.comment %></td>
-      <td>
-        <% if comment.user == current_user %>
-        <%= link_to "削除", post_comments_path(comment.post,comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-    
+    <div id="comments-area"><%= render "comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
+
 
 
   </div>
