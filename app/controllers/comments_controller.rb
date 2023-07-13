@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.post_id = post.id
     comment.save
-    redirect_to post_path(post_id)
-  end
+    redirect_to post_path(post.id)
+   end
 
   def destroy
     Comment.find(params[:id]).destroy

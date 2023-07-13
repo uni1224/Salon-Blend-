@@ -1,22 +1,30 @@
 <div class="container">
-  <div class="row mt-4">
-    <div class="col-md-3 col-sm-3">
-       <h4 class="ml-5 mb-5"><span class="title-custom px-4">投稿一覧</span></h4>
-       <%= link_to "追加", new_salon_post_path , class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
-
-        </div>
- <table class="table table-striped">
+  <div class="row pt-5 pl-5 ml-5">
+    <div class="col-12 text-center title">
+        <h4>ブログ</h4></div>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>更新日時</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+       <% @posts.each do |post| %>
      <tr>
-     <th>投稿タイトル</th>
-     <th>投稿内容</th>
-     </tr>
- <% @posts.each do |post| %>
- <tr>
+         <td><%= image_tag post.image, size: "200x200" , class: "shadow p-3 mb-5 bg-white", style: "margin: auto;" %></td>
+         
  <td><%= link_to post.title, salon_post_path(post) %></td>
- <td><%= post.body %></td>
+ <td><%= post.created_at.strftime("%Y年%m月%d日(%a)")%></td>
+ <td>
+<i class="fa fa-heart like"></i>
+<%= post.likes.count %></td>
  </tr>
 <%end%>
-
+ </tr>
+  </tbody>
 </table>
 
          </div>
