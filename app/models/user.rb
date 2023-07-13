@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :reservation, dependent: :destroy
+         has_many :comments, dependent: :destroy
+         has_many :likes
          scope :only_active, -> { where(is_deleted: false) }
 
          # 以下を追加
@@ -22,6 +24,11 @@ class User < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
+ 
+def liked_by?(post_id)
+  likes.where(post_id: post_id).exists?  
+end
+
 
 
   validates :last_name, presence: true

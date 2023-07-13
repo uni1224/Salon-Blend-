@@ -7,6 +7,24 @@
 .past a {
   color: gray;
 }
+.like-link{
+   text-decoration: none;
+}
+
+.like-link:hover {
+  background-color: #fff!important;
+}
+
+.like-btn {
+  font-size: 10px;
+  color: #C0C0C0;
+}
+
+.unlike-btn {
+  font-size: 15px;
+  color: #FF0000;
+}
+
 
 /*
 *= require simple_calendar

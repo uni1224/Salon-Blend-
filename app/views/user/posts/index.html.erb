@@ -22,6 +22,11 @@
  <td><%= post.id %></td>
  <td><%= post.title %></td>
  <td><%= post.body %></td>
+ <td><% @posts.each do |post| %>
+  <div id="post_<%= post.id %>">
+    <%= render 'post', post: post %>
+  </div>
+<% end %></td>
  </tr>
 <%end%>
 
