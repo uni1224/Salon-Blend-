@@ -31,6 +31,16 @@ def liked_by?(post_id)
   likes.where(post_id: post_id).exists?  
 end
 
+def user_name
+    last_name + first_name
+end
+
+    def self.looks(search, word)
+      @users = User.where("first_name LIKE? OR last_name LIKE? OR first_name_kana LIKE? OR last_name_kana LIKE? OR phone_number LIKE? OR address LIKE? OR email LIKE?",
+      "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
+    end
+
+
 
 
   validates :last_name, presence: true

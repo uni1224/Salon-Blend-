@@ -33,7 +33,7 @@ class User::ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     if @reservation.destroy
       flash[:success] = "予約を削除しました。"
-      redirect_to salon_reservations_path(@reservation)
+      redirect_to reservations_path(@reservation)
     else
       render :index
     end

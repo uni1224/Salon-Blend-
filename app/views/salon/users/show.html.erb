@@ -44,10 +44,74 @@
         <% end %>
       </tr>
     </table>
+     </div>
+    <div class="col-4">
+    <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">予約日</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_reservations.each do |user_reservation| %>
+              <td>
+                <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>
+              </td>
+              <td>
+                <%= link_to '削除', reservation_path(user_reservation.id), class: "btn btn-danger",method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+              </td>
+            </tr>
+            <% end %>
+            <% if @user_reservations.blank? %>
+              <tr>
+                <td>予約はありません。</td>
+              </tr>
+            <% end %>
+      <div class="col-12 mt-3 text-center mx-auto">
+       <th scope="col">来院履歴</th>
+        <table class="table">
+          <thead>
+            <tr>
+      
+            </tr>
+          </thead>
+          <tbody>
+            <% @visit_historys.each do |visit_history| %>
+              <tr>
+                <td>
+
+                  <%=  visit_history.day.strftime("%Y年%m月%d日(%a)") %><%=  visit_history.time.strftime("%H:%M") %>
+                </td>
+              </tr>
+            <% end %>
+            <% if @visit_historys.blank? %>
+              <tr>
+                <td>来院履歴はありません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+</div>
+
+      </tbody>
+    </table>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+   </div>
+   <div>
+   </div>
+  </div>
     </div>
   </div>
   <div class="text-center">
         <%= link_to "編集する", edit_salon_user_path(@user.id), class: "btn btn-success" %>
-        <%= link_to "予約履歴一覧を見る", reservation_path(@user_reservations), class: "btn btn-primary" %>
+        
   </div>
 </div>

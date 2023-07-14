@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 devise_scope :user do
     post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
   end
+    get 'searches/search'
 
 scope module: :user do
   root to: "homes#top"
@@ -50,7 +51,6 @@ namespace :salon do
   end
   resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :reservations
-  resources :reservations_details, only: [:update]
   resources :users, only: [:show, :index, :edit, :update]
   resources :rooms, only: %i(index show)
   resource :message, only: :create

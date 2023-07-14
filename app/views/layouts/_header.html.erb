@@ -106,11 +106,14 @@
          </li>
        <% end %>
        </ul>
-       <div class="mt-2 me-5">
-        <%#= render 'layouts/search', q: @q %>
+      <div class="float-right mt-2">
+      <div class="search_form serch_inner ml-2">
+      <%= form_with url: searches_search_path, local: true, method: :get do |f| %>
+      <%= f.text_field :word, placeholder:"顧客検索"%>
+      <%= button_tag type: "submit", class:"btn btn-outline btn-sm glass" do%><div class="text-info"><i class="fa-solid fa-magnifying-glass"></i></div><% end %>
+      <% end %>
       </div>
       </div>
-
 
     </div>
 </nav>
