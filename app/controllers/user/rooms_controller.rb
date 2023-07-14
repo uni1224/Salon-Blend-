@@ -15,11 +15,12 @@ class User::RoomsController < ApplicationController
   end
 
   private
-  def get_two_days_ago
+  
+   def get_two_days_ago
     @two_days_ago = Date.today - 2
-  end
+   end
 
-  def set_room_or_move
+   def set_room_or_move
     # ログインユーザーの予約に紐づくルームへのアクセスでない場合、リダイレクト
     redirect_to rooms_path, alert: 'メッセージルームに入れませんでした' if Reservation.find(params[:id]).user_id != current_user.id
 
@@ -31,12 +32,12 @@ class User::RoomsController < ApplicationController
       @room = Room.new(reservation_id: params[:id])
       redirect_to rooms_path, alert: 'メッセージルームに入れませんでした' unless @room.save
     end
-  end
+   end
 
-  def move_to_index_for_expired
+   def move_to_index_for_expired
     # 来店日を３日間以降過ぎている場合、ルーム一覧へリダイレクト
     if @room.reservation.day < @two_days_ago
       redirect_to rooms_path and return
     end
-  end
+   end
 end

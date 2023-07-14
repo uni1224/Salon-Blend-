@@ -16,10 +16,10 @@ class Salon::UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
     if  @user.update(user_params)
-        flash[:success] = "会員情報を変更に成功しました。"
+        flash[:success] = "会員情報を変更に成功しました"
           redirect_to salon_user_path(@user.id)
     else
-        flash.now[:danger] = "会員情報の変更ができませんでした。"
+        flash.now[:danger] = "会員情報の更新に失敗しました"
           render :edit
     end
     end

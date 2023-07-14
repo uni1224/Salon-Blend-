@@ -1,7 +1,6 @@
 class User::UsersController < ApplicationController
-
-  before_action :authenticate_user!
-  before_action :set_current_user
+ before_action :authenticate_user!
+ before_action :set_current_user
 
   def show
     @user_reservations = current_user.reservation.where("start_time >= ?", DateTime.current).order(day: :desc)
@@ -12,36 +11,38 @@ class User::UsersController < ApplicationController
   end
 
   def update
-     if @user.update(user_params)
-      redirect_to mypage_path, success: '会員情報の更新が完了しました。'
-     else
-      render :edit
-     end
+    if @user.update(user_params)
+      flash[:success] = '会員情報を更新しました'
+       redirect_to mypage_path
+    else
+      flash[:danger] = '会員情報の更新に失敗しました'
+       render :edit
+    end
   end
 
   def quit
   end
 
   def out
-    @user.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
+      @user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path
   end
   
-   def destroy_confirm
-    @user = current_user
-   end
+  def destroy_confirm
+       @user = current_user
+  end
 
   def destroy_user
-    @user = current_user
-    if @user.email == 'guestda@example.com'
-      reset_session
-      redirect_to :root
-    else
-      @user.update(is_valid: false)
-      reset_session
-      redirect_to :root
-    end
+       @user = current_user
+     if @user.email == 'guestda@example.com'
+       reset_session
+       redirect_to :root
+     else
+       @user.update(is_valid: false)
+       reset_session
+       redirect_to :root
+     end
   end
 
   private

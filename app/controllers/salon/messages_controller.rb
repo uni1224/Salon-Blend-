@@ -1,15 +1,18 @@
 class Salon::MessagesController < ApplicationController
-     def create
-    message = Message.new(message_params)
+   def create
+      message = Message.new(message_params)
     if message.save
+      flash[:success] = 'メッセージを送信しました'
       redirect_to salon_room_path(message.room.reservation_id)
     else
-      redirect_to salon_room_path(message.room.reservation_id), alert: 'メッセージを送信できませんでした'
+       flash[:danger] = 'メッセージを送信できませんでした'
+      redirect_to salon_room_path(message.room.reservation_id)
     end
-     end
+   end
 
   private
-  def message_params
-    params.require(:message).permit(:message, :room_id).merge(salon_id: current_salon.id)
-  end
+  
+    def message_params
+      params.require(:message).permit(:message, :room_id).merge(salon_id: current_salon.id)
+    end
 end

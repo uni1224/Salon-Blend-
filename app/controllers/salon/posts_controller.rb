@@ -14,8 +14,10 @@ class Salon::PostsController < ApplicationController
     def create
        @post = Post.new(post_params)
         if @post.save
-            redirect_to salon_post_path(@post.id),notice: "投稿が完了しました"
+             flash[:success] =  "投稿が完了しました"
+            redirect_to salon_post_path(@post.id)
         else
+            flash.now[:danger] = "投稿に失敗しました"
             render :new
         end
     end
@@ -27,8 +29,10 @@ class Salon::PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
         if @post.update(post_params)
-            redirect_to salon_post_path(@post),notice: "編集が完了しました"
+            flash[:success] =  "投稿を編集しました"
+            redirect_to salon_post_path(@post)
         else
+            flash.now[:danger] = "編集に失敗しました"
             render :edit
         end
     end
@@ -36,7 +40,8 @@ class Salon::PostsController < ApplicationController
     def destroy
         post = Post.find(params[:id])
         post.destroy
-        redirect_to salon_posts_path,notice:"投稿を削除しました"
+        flash[:success] = "投稿を削除しました"
+        redirect_to salon_posts_path
     end
 
 

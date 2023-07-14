@@ -16,10 +16,8 @@
 
       <%= render 'layouts/header' %>
     </header>
+      <%= render partial: 'layouts/flash' %>
 <main>
-  <!--フラッシュメッセージ-->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <%= yield %>
 </main>
   </body>

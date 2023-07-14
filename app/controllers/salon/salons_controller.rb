@@ -10,8 +10,10 @@ class Salon::SalonsController < ApplicationController
 
   def update
       if @salon.update(salon_params)
-      redirect_to salon_mypage_path, notice: '会員情報の更新が完了しました。'
+        flash[:success] = 'サロン情報を更新しました'
+      redirect_to salon_mypage_path 
       else
+        flash[:danger] = 'サロン情報の更新に失敗しました'
       render :edit
       end
   end
