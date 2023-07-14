@@ -5,9 +5,8 @@ class Reservation < ApplicationRecord
 
   
 
-  #validate :date_before_start
-  #validate :date_current_today
-  #validate :date_three_month_end
+  validate :date_before_start
+  validates :start_time, uniqueness: { message: 'は他のユーザーが予約しています' }
 
   def date_before_start
     errors.add(:day, "は過去の日付は選択できません") if day < Date.current
@@ -39,7 +38,7 @@ class Reservation < ApplicationRecord
     reservation_data = []
     reservations.each do |reservation|
     reservations_hash = {}
-    reservations_hash.merge!(day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time, name: reservation.user.last_name, id:reservation.id)
+    reservations_hash.merge!(day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time, name: reservation.user.user_name, id:reservation.id)
     reservation_data.push(reservations_hash)
     end
     reservation_data
