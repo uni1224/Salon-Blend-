@@ -24,20 +24,22 @@
       </thead>
       <tbody>
       <tr>
-        <td>メニュー名</td>
+        <td>タイトル</td>
         <td><%= @post.title %></td>
       </tr>
       <tr>
-        <td>メニュー説明</td>
+        <td>内容</td>
         <td><%= @post.body %></td>
       </tr>
-         <td>コメント数：<%= @post.comments.count %></td>
+      <tr>
+         <td>コメント数</td>
+         <td><%= @post.comments.count %></td>
 
       </tr>
      </tbody>
     </table>
     </div>
-    <div id="comments-area"><%= render "comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
+    <div id="comments-area"><%= render "comments/comment", post: @post,comment: @comment,post_comment: @post_comment %></div>
 
 
 

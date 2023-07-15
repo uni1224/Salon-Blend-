@@ -8,12 +8,14 @@
   <tbody>
     <% @post_comments.each do |comment| %>
  <div class="col-3 text-center">
-   <%= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpg", size: '40x40' , class:"rounded-circle"; %>
-    <div class="small mb-4"><%= comment.user.last_name %>
+   <%#= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpeg", size: '40x40' , class:"rounded-circle"; %>
+
+    <div class="small mb-4"><%= comment.user.user_name %>
    </div>
 　</div>
-<%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, remote: true, "data-confirm" => t('comments.create.delete_confirm'), class: "btn-sm btn-danger" %></td>
+　<div class="small mb-4"><%= comment.content%></div>
+<div class="small mb-4"><%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, remote: true, "data-confirm" => t('comments.create.delete_confirm'), class: "btn-sm btn-danger" %></div
 <% end %>
-  
+
   </tbody>
 </table>

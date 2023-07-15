@@ -1,0 +1,2 @@
+module Salon::CommentsHelper
+end
