@@ -33,14 +33,14 @@
       </tr>
       <tr>
          <td>コメント数</td>
-         <td><%= @post.comments.count %></td>
+         <td>コメント件数:<span id="comment_count"><%= @post.comments.count %></span></td>
 
       </tr>
      </tbody>
     </table>
     </div>
-    <div id="comments-area"><%= render "comments/comment", post: @post,comment: @comment,post_comment: @post_comment %></div>
-
+    <div id="comments-area-<%= @post.id %>"><%= render "comments/comment", post: @post,comment: @comment,post_comment: @post_comment %></div>
+<div id="comment_form-<%= @post.id %>"><%= render "comments/comment_form", post: @post,comment: @comment %></div>
 
 
   </div>
