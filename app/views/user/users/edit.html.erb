@@ -9,6 +9,10 @@
     <%= render 'layouts/error', obj: @user%>
         <div class="col-8 mx-auto form-group">
          <tr>
+            <td><%= f.label :inmage,"プロフィール画像" %></td>
+            <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*",:placeholder =>"#{@user.get_profile_image(100,100)}" %>  </td>
+         </tr>
+         <tr>
             <td>名前</td>
 
             <td><%= f.label :last_name, "(姓)",class: "user_name" %><%= f.text_field :last_name, :placeholder =>"#{@user.last_name}" %></td>
@@ -19,6 +23,15 @@
             <td><%= f.label :last_name_kana, "(セイ)" %><%= f.text_field :last_name_kana, :placeholder =>"#{@user.last_name_kana}" %></td>
           <td><%= f.label :first_name_kana, "(メイ)" %><%= f.text_field :first_name_kana, :placeholder =>"#{@user.first_name_kana}" %></td></tr>
          <tr>
+         <tr>
+            <td><%= f.label :nick_name,"ニックネーム" %></td>
+            <td colspan="2"><%= f.text_field :nick_name, :placeholder =>"#{@user.nick_name}" %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :birthday,"生年月日" %></td>
+            <td colspan="2"><%= f.date_select :birthday, {start_year: 1950, end_year: 2016,include_blank: true, use_two_digit_numbers: true},
+         {class: "input-tab birthday-select"} %></td>
+        </tr>
            <td><%= f.label :email,"メールアドレス" %></td>
           <td colspan="2"><%= f.email_field :email, autocomplete: "email",:placeholder =>"#{@user.email}" %></td>
          </tr>

@@ -7,7 +7,6 @@ class User::CommentsController < ApplicationController
     @comment.post_id = @post.id
     @comment.save
     flash[:success] = 'コメントしました'
-    #redirect_to post_path(@post)
   end
 
   def destroy
@@ -15,9 +14,7 @@ class User::CommentsController < ApplicationController
     @post_comments = @post.comments
     @comment = Comment.find(params[:id])
     @comment.destroy
-    #Comment.find(params[:id]).destroy
     flash[:success] = 'コメントを削除しました'
-    #redirect_to post_path(@post)
   end
 
   private

@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
     has_one_attached :image
-    belongs_to :salon#,optional: true
+    belongs_to :salon,optional: true
     has_many :comments, dependent: :destroy
-    has_many :likes
+    has_many :read_counts, dependent: :destroy
+    has_many :likes, dependent: :destroy
     
     def get_image(width, height)
     image.variant(resize_to_limit: [width, height]).processed

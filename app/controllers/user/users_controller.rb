@@ -28,7 +28,7 @@ class User::UsersController < ApplicationController
       reset_session
       redirect_to root_path
   end
-  
+
   def destroy_confirm
        @user = current_user
   end
@@ -52,6 +52,6 @@ class User::UsersController < ApplicationController
   end
     private
     def user_params
-    params.require(:user).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :phone_number)
+    params.require(:user).permit(:last_name, :first_name, :first_name_kana, :last_name_kana,:nick_name,:birthday,:profile_image,:email, :postal_code, :address, :phone_number)
     end
 end
