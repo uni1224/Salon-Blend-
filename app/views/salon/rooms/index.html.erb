@@ -1,4 +1,7 @@
-<div>サロンチャットルームの一覧</div>
+<div class="container">
+ <div class="col-md-10 mx-auto mt-5">
+  <div class="row justify-content-center mb-5">
+    </div><div>サロンチャットルーム</div>
 <% @reservations.each do |reservation| %>
   <div>
     <%= reservation.user.last_name %><%= reservation.user.first_name %>

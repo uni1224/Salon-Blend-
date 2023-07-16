@@ -1,4 +1,10 @@
-<div>Adminチャットルームの詳細</div>
+<div class="container">
+ <div class="col-md-10 mx-auto mt-5">
+  <div class="row justify-content-center mb-5">
+   <div class="col-md-4 headline">
+    </div>
+    
+     </div><div>チャットルーム<i class="fa-solid fa-envelope"></i></div>
 ルームID<%= @room.id %>
 <% if @messages.blank? %>
   <p>メッセージはありません</p>
@@ -7,7 +13,7 @@
   <% @messages.each do |message| %>
     <div>
       <% if message.user %>
-        <span><%= message.user.nickname %>:</span>
+        <span><%= message.user.user_name %>:</span>
       <% else %>
         <span>スタッフ:</span>
       <% end %>

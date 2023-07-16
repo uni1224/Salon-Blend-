@@ -56,20 +56,6 @@ namespace :salon do
   resource :message, only: :create
 end
 
-# 管理者用
-# URL /admin/sign_in ...
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-}
 
-namespace :admin do
-  root to: "homes#top"
-  resources :posts, only: [:index, :show]
-  resources :menus, only: [:index, :show]
-  #resources :resarvations, only: [:index, :show]
-  #resources :resarvations, only: [:index, :show]
-  resources :users, only: [:index, :show, :edit, :update]
-  resources :salons, only: [:index, :show, :edit, :update]
-end
 
 end
