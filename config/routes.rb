@@ -22,7 +22,6 @@ scope module: :user do
   get 'users/quit' => 'users#quit', as: 'confirm_quit'
   put 'users/information' => 'users#update'
   patch 'users/out' => 'users#out', as: 'out_user'
-  resources :menus, only: [:index, :show]
   resources :reservations
   resources :rooms, only: %i(index show)
   resource :message, only: :create
@@ -49,7 +48,6 @@ namespace :salon do
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :comments,only:[:create, :destroy]
   end
-  resources :menus, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :reservations
   resources :users, only: [:show, :index, :edit, :update]
   resources :rooms, only: %i(index show)

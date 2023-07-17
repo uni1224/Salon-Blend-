@@ -15,9 +15,9 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.user.user_name %></td>
-        <td><%=  reservation.time.strftime( "%H:%M" ) %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  reservation.time.strftime( "%H:%M" ) %></td>
+        <td><%= link_to 'Show', salon_reservation_path(reservation.id) %></td>
+        <td><%= link_to 'Edit', edit_salon_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'message', salon_rooms_path %></td>
       </tr>

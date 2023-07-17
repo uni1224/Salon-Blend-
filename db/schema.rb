@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 2023_07_16_074502) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "menus", force: :cascade do |t|
-    t.integer "salon_id"
-    t.string "title"
-    t.text "description"
-    t.integer "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.integer "room_id", null: false
     t.integer "user_id"
