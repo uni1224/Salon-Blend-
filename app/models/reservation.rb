@@ -23,7 +23,7 @@ class Reservation < ApplicationRecord
 
   def self.check_reservation_day(day)
     if day < Date.current
-      return "過去の日付は選択できません。正しい日付を選択してください。"
+      return "過��の日付は選択できません。正しい日付を選択してください。"
     elsif day < (Date.current + 1)
       return "当日は選択できません。正しい日付を選択してください。"
     elsif (Date.current >> 3) < day
@@ -38,7 +38,7 @@ class Reservation < ApplicationRecord
     reservation_data = []
     reservations.each do |reservation|
     reservations_hash = {}
-    reservations_hash.merge!(day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time, name: reservation.user.user_name, id:reservation.id)
+    reservations_hash.merge!(day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time, name: reservation.user.user_name, id: reservation.id)
     reservation_data.push(reservations_hash)
     end
     reservation_data

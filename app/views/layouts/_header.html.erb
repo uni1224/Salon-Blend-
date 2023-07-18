@@ -1,38 +1,38 @@
 <nav class="navbar navbar-expand-lg text-center pt-0 pb-0"style="background-color:#bc8f8f;">
    <div class="collapse navbar-collapse">
-    <%# if user_signed_in? %>
+    <% if user_signed_in? %>
      <div class="row d-flex justify-content-around align-items-center col-md-6 ms-5">
       <div class="navbar navbar-brand">
-        <%#= link_to root_path do %>
-          <%#= image_tag 'logo.jpg', alt: "ロゴ" %>
-        <%# end %>
-        <!--<h5 class="mb-0", style= "color: #E5E5CB;" >ようこそ、<%#= current_customer.last_name %>さん</h5>-->
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png',size: '80x80' %>
+        <% end %>
+        <h6 class="mb-0", style= "color: #f5f5f5"; >~ようこそ、<%= current_user.user_name %>さん~</h6>
       </div>
     </div>
-    <%# elsif admin_signed_in? %>
+    <% elsif salon_signed_in? %>
     <div class="row d-flex justify-content-around align-items-center col-md-6 ms-5">
       <div class="navbar navbar-brand">
-      <%#= link_to root_path do %>
-        <%#= image_tag 'logo.jpg', alt: "ロゴ" %>
-      <%# end %>
-      <!--<h5 class="mb-0", style= "color: #E5E5CB;">管理者ログイン中</h5>-->
+      <%= link_to salon_root_path do %>
+        <%= image_tag 'logo.png',size: '80x80'%>
+      <% end %>
+      <h6 class="mb-0", style= "color: #f5f5f5";>管理者ログイン中・・・<i class="fa-solid fa-right-to-bracket"></i></h6>
       </div>
     </div>
-      <%# else %>
+      <% else %>
       <div class="navbar navbar-brand ms-5">
-        <%#= link_to root_path do %>
-        <%#= image_tag 'logo.jpg', alt: "ロゴ" %>
-        <%# end %>
+        <%= link_to root_path do %>
+        <%= image_tag 'logo.png',size: '80x80' %>
+        <% end %>
         <div></div>
       </div>
-      <% #end %>
+      <% end %>
      </div>
 
      <div class="col-md-6">
       <ul class="navbar-nav mx-auto justify-content-around">
         <% if user_signed_in? %>
          <li class="nav-item">
-           <%= link_to mypage_path ,class: "nav-link", style: "color: ##f5f5f5" do %>
+           <%= link_to mypage_path ,class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-user"></i>
            マイページ
            <% end %>
@@ -110,13 +110,21 @@
            ログイン
            <% end %>
          </li>
+         <li class="nav-item">
+           <%= link_to users_guest_sign_in_path, method: :post,class: "nav-link", style: "color: #f5f5f5" do %>
+           <i class="fa-solid fa-user-shield"></i>
+           ゲストログイン
+           <% end %>
+         </li>
        <% end %>
        </ul>
+       <% if salon_signed_in? %>
       <div class="float-right mt-2">
       <div class="search_form serch_inner ml-2">
       <%= form_with url: searches_search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word, placeholder:"顧客検索"%>
       <%= button_tag type: "submit", class:"btn btn-outline btn-sm glass" do%><div class="text-info"><i class="fa-solid fa-magnifying-glass"></i></div><% end %>
+      <% end %>
       <% end %>
       </div>
       </div>

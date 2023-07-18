@@ -19,6 +19,7 @@ class User < ApplicationRecord
                       last_name_kana: "ゲスト",
                       first_name_kana: "ゲスト",
                       nick_name: "ゲスト",
+                      birthday: "20000101",
                       postal_code: "0000000",
                       phone_number: "0000000000",
                       address: "ゲスト",
