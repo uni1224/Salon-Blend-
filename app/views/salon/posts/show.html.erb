@@ -47,7 +47,7 @@
       <%= link_to "編集", edit_salon_post_path(@post.id), class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
       <%= link_to "削除", @posts, method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;"%>
       </div>
-       <div id="comments-area"><%= render "comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
+       <div id="comments-area"><%= render "salon/comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
        <div id="comment_form-<%= @post.id %>"><%= render "salon/comments/comment_form", post: @post,comment: @comment %></div>
   </div>
 </div>

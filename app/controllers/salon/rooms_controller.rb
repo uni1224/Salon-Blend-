@@ -2,7 +2,7 @@ class Salon::RoomsController < ApplicationController
   before_action :set_room, only: :show
 
   def index
-    @reservations = Reservation.includes(:user).order(day: "DESC")
+    @reservations = Reservation.includes(:user).order(day: "DESC").all.page(params[:page]).per(10)
   end
 
   def show

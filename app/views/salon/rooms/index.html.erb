@@ -1,11 +1,24 @@
 <div class="container">
  <div class="col-md-10 mx-auto mt-5">
   <div class="row justify-content-center mb-5">
-    </div><div>サロンチャットルーム</div>
+    </div>
+    <table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>予約名</th>
+      <th>予約日</th>
+      <th>チャットルーム</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
 <% @reservations.each do |reservation| %>
-  <div>
-    <%= reservation.user.last_name %><%= reservation.user.first_name %>
-    <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %>
-    <%= link_to "DM", salon_room_path(reservation) %>
-  </div>
+   <tr>
+    <td><%= reservation.user.user_name %></td>
+   <td> <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %></td>
+    <td><%= link_to "DM", salon_room_path(reservation) %></td>
+    </tr>
 <% end %>
+ </tbody>
+</table>
+<%= paginate @reservations %>

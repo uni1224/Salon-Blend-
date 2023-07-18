@@ -1,4 +1,5 @@
 class User::CommentsController < ApplicationController
+  before_action :ensure_correct_user, only: [:destroy]
   def create
     @post = Post.find(params[:post_id])
     @post_comments = @post.comments
@@ -18,6 +19,13 @@ class User::CommentsController < ApplicationController
   end
 
   private
+  
+   def ensure_correct_user
+    @comment = Comment.find(params[:id])
+    unless @comment.user == current_user
+      redirect_to posts_path, notice: "投稿者以外コメントは削除できません。"
+    end
+   end
 
   def comment_params
     params.require(:comment).permit(:content)
