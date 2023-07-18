@@ -32,80 +32,80 @@
       <ul class="navbar-nav mx-auto justify-content-around">
         <% if user_signed_in? %>
          <li class="nav-item">
-           <%= link_to mypage_path ,class: "nav-link", style: "color: #d8bfd8;" do %>
+           <%= link_to mypage_path ,class: "nav-link", style: "color: ##f5f5f5" do %>
            <i class="fa-solid fa-user"></i>
            マイページ
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to posts_path ,class: "nav-link", style: "color: #d8bfd8;" do %>
+           <%= link_to posts_path ,class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fas fa-camera-retro"></i>
            ブログ
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to reservations_path, class: "nav-link", style: "color: #d8bfd8;" do %>
+           <%= link_to reservations_path, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-heart"></i>
            予約
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to rooms_path, class: "nav-link", style: "color: #d8bfd8;" do %>
+           <%= link_to rooms_path, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-envelope"></i>
            DM
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", style: "color: #d8bfd8;" do %>
+           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-right-from-bracket"></i>
            ログアウト
            <% end %>
          </li>
         <% elsif salon_signed_in? %>
          <li class="nav-item">
-           <%= link_to salon_posts_path ,class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to salon_posts_path ,class: "nav-link", style: "color: #f5f5f5" do %>
           <i class="fas fa-camera-retro"></i>
            ブログ
            <% end %>
          <li class="nav-item">
-           <%= link_to salon_users_path ,class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to salon_users_path ,class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-user-check"></i>
            会員一覧
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to salon_reservations_path ,class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to salon_reservations_path ,class: "nav-link", style: "color: #f5f5f5" do %>
           <i class="fa-solid fa-check"></i>
            予約スケジュール
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to salon_rooms_path, class: "nav-link", style: "color: #d8bfd8;" do %>
+           <%= link_to salon_rooms_path, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-envelope"></i>
            DM
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to destroy_salon_session_path, method: :delete, class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to destroy_salon_session_path, method: :delete, class: "nav-link", style: "color: #f5f5f5;" do %>
          <i class="fa-solid fa-right-from-bracket"></i>
            ログアウト
            <% end %>
          </li>
        <% else %>
          <li class="nav-item">
-           <%= link_to about_path, class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to about_path, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-heart"></i>
            About
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to new_user_registration_path, class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to new_user_registration_path, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-user-plus"></i>
            新規登録
            <% end %>
          </li>
          <li class="nav-item">
-           <%= link_to new_user_session_path, class: "nav-link", style: "color: #E5E5CB;" do %>
+           <%= link_to new_user_session_path, class: "nav-link", style: "color: #f5f5f5" do %>
            <i class="fa-solid fa-right-to-bracket"></i>
            ログイン
            <% end %>

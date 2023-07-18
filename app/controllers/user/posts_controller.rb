@@ -1,6 +1,6 @@
 class User::PostsController < ApplicationController
      def index
-        @posts = Post.all
+        @posts = Post.all.page(params[:page]).per(5)
         @comment = Comment.new
      end
 
