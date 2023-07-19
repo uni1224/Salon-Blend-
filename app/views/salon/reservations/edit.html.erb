@@ -11,8 +11,8 @@
         <%#= form.text_field :day, class: 'form-control',:placeholder =>"#{reservations.day.strftime("%Y年%m月%d日(%a)")}"  %>
       </div>
       <div class="time form-group">
-
-        <%#= form.text_field :time, class: 'form-control', :placeholder =>"#{reservations.time.strftime( "%H:%M" )}"  %>
+<%= f.time_select :time, {}, class: 'form-control',:placeholder =>"#{@reservation.time.strftime( "%H:%M" )}"  %>
+        <%#= form.text_field :time, class: 'form-control', :placeholder =>"#{@reservations.time.strftime( "%H:%M" )}"  %>
       </div>
       </div>
       <%#= form.hidden_field :user_id, value: current_user.id %>

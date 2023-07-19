@@ -1,11 +1,10 @@
 class Salon::ReservationsController < ApplicationController
     def index
         @reservations = Reservation.all
-        @reservation = Reservation.find_by(params[:id])
     end
 
     def show
-        @reservation = Reservation.find_by(params[:id])
+        @reservation = Reservation.find(params[:id])
     end
 
     def edit

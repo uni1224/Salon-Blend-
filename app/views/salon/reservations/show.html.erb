@@ -16,6 +16,11 @@
         <label><strong>時間：</strong></label>
         <p style="display:inline;"><%=  @reservation.time.strftime( "%H:%M" ) %></p>
       </div>
+      <div class=" mt-3 text-center">
+       <%= link_to 'Edit', edit_salon_reservation_path(@reservation), class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
+        <%= link_to 'Destroy', @reservation, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn w-25 mt-3 change_button", style: "background-color:#a52a2a;" %>
+        <%= link_to 'message', salon_rooms_path , class: "btn w-25 mt-3 change_button", style: "background-color:#db7093;"%>
+        </div>
     </div>
     <div class="col-12 text-right">
       <%= link_to '予約画面に戻る', reservations_path %>

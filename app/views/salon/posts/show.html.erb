@@ -48,5 +48,5 @@
       <%= link_to "削除", @posts, method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn w-25 mt-3 change_button", style: "background-color:#a52a2a;"%>
       </div>
        <div id="comments-area"><%= render "salon/comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
-       
+
 </div>
