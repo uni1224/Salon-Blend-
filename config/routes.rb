@@ -45,9 +45,8 @@ namespace :salon do
   get 'salons/quit' => 'salons#quit', as: 'confirm_quit'
   put 'salons/information' => 'salons#update'
   patch 'salons/out' => 'salons#out', as: 'out_salon'
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :comments,only:[:create, :destroy]
-  end
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
+  resources :comments,only:[:index, :show, :destroy]
   resources :reservations
   resources :users, only: [:show, :index, :edit, :update]
   resources :rooms, only: %i(index show)

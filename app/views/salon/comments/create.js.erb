@@ -1,4 +1,0 @@
-<!--$('#comment_form-<%#= @post.id %>').html("<%#= j(render "comments/comment_form",  post: @post,comment: @comment,post_comment: @post_comment) %>");-->
-$('#comments-area-<%= @post.id %>').html("<%= j(render "salon/comments/comment",  post: @post,post_comment: @post_comment) %>");
-$('#comment_count').html("<%= @post.comments.count %>")
-$("textarea").val('');

@@ -7,7 +7,6 @@ class Salon < ApplicationRecord
   has_many :menus, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :comments, dependent: :destroy
 
 
 
