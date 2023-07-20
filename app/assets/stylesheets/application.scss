@@ -1,12 +1,25 @@
 .main-container {
   background-image: image-url('IMG_4746.jpg');
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 	background-size: 60% auto;
 	height: 300px;
 	margin: 50px;
 	width: 100%;
+}
+.salon-top {
+   background-image: image-url('26935184_s.jpg');
+  background-size: cover;
+  background-position: center;          /* 全画面 */
+  background-attachment: fixed;         /* 固定 */
+  color: #696969;
+  background-repeat: no-repeat;
+	background-size: 60% auto;
+	height: 300px;
+	margin: 50px;
+	width: 100%;
+	padding: 80px;
 }
 .h1 {
   color: #E6E6E6;
@@ -65,20 +78,12 @@
 .pagination {
   justify-content: center;
 }
-.wrapper{
-    min-height: 100vh;
+.top-title{
+  color: white;
+  padding: 80px;
 }
 
-footer{
-    /*footerの装飾*/
-    width: 100%;
-    background-color: #89c7de;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-    position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
-}
+
 
 
 /*

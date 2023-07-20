@@ -1,10 +1,22 @@
 <div class="container">
  <div class="col-md-10 mx-auto mt-5">
   <div class="row justify-content-center mb-5">
-    </div><h5 class="mb-0", style= "color: #008b8b;" ><%= current_user.last_name %><%= current_user.first_name %>さんのチャットルームの一覧</h5>
+    </div><h5 class="mb-0" ><%= current_user.last_name %><%= current_user.first_name %>さんのチャットルーム一覧</h5>
+       <table class='table table-striped table-hover', style= "color: #778899;">
+  <thead>
+    <tr>
+      <th>予約日</th>
+      <th>チャットルーム</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
 <% @reservation.each do |reservation| %>
-  <div>
-    <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %>
-    <%= link_to "DM", room_path(reservation) %>
-  </div>
+  <tr>
+  <td>
+    <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %></td>
+   <td> <%= link_to "DM", room_path(reservation) %>
+  </td></tr>
 <% end %>
+</tbody>
+</table>
