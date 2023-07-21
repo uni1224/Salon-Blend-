@@ -2,7 +2,10 @@
   <div class="row pt-5 pl-5 ml-5">
     <div class="col-12 text-center title">
         <h4>Blog<i class="fa-brands fa-instagram"></i></h4></div>
-        <%= link_to "追加" ,new_salon_post_path %>
+        <%= link_to new_salon_post_path do%>
+        追加
+        <i class="fa-solid fa-square-plus"></i>
+        <% end %>
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>

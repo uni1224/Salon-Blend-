@@ -7,21 +7,6 @@ class Salon::ReservationsController < ApplicationController
         @reservation = Reservation.find(params[:id])
     end
 
-    def edit
-        @reservation = Reservation.find_by(params[:id])
-    end
-
-    def update
-        @reservation=Reservation.find(params[:id])
-        if @reservation.update(reservation_params)
-            flash[:success] =  "予約を変更しました"
-            redirect_to salon_reservation_path(@reservation)
-        else
-            flash.now[:danger] = "変更に失敗しました"
-            render :edit
-        end
-    end
-
     def destroy
         @reservation = Reservation.find_by(params[:id])
     if  @reservation.destroy
