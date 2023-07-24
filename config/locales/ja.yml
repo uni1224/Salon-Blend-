@@ -1,10 +1,10 @@
 ja:
   activerecord:
     attributes:
-    post:
-      title: "タイトル"
-      body: "内容"
-      image: "画像"
+      post:
+        title: "タイトル"
+        body: "内容"
+        image: "画像"
     comment:
       content: "コメント内容"
   date:
