@@ -1,22 +1,42 @@
-<div>Userチャットルームの詳細</div>
+<div class="container message">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 message-index">
+
+<h4>サロンスタッフとののチャットルーム</h4>
 ルームID<%= @room.id %>
+ <div class="ui segment">
 <% if @messages.blank? %>
   <p>メッセージはありません</p>
 <% else%>
-  <p>メッセージがあります</p>
+  <p>メッセージがあります<i class="fa-solid fa-envelope"></i></p>
   <% @messages.each do |message| %>
-    <div>
       <% if message.user %>
-        <span><%= message.user.first_name %>:</span>
+         <div class="item-left">
+           <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
+           <div id="balloon">
+        <%= message.user.user_name %>:
+           <%= message.message %>
+           </div>
+           <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></p>
+          </div>
       <% else %>
-        <span>スタッフ:</span>
-      <% end %>
+      <div class="item-right">
+        <span>スタッフ</span>
+      <div id="balloon1">
+
       <span><%= message.message %></span>
-    </div>
+        </div><br>
+         <div class="clear">
+ <p><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></p>
+         </div>
+         </div>
+        <% end %>
   <% end %>
 <% end %>
 <%= form_with model: @message, url: message_path, local: true do |f| %>
+ <div class="message-field">
   <%= f.text_field :message, class:"address-new-form" %>
   <%= f.hidden_field :room_id, value: @room.id %>
   <%= f.submit "送信", class:"register-green-btn" %>
 <% end %>
+</div>
+    </div>
