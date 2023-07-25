@@ -1,5 +1,5 @@
 <div class="container message">
-  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 message-index">
+  <div class="wrapper col-md-12 col-md-offset-2 col-sm-10 message-index">
 
 <h4>サロンスタッフとののチャットルーム</h4>
 ルームID<%= @room.id %>
@@ -10,22 +10,20 @@
   <p>メッセージがあります<i class="fa-solid fa-envelope"></i></p>
   <% @messages.each do |message| %>
       <% if message.user %>
-         <div class="item-left">
-           <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
-           <%= message.user.user_name %>
-           <div id="balloon">
+       <div class="item-right">
+                <div id="balloon1">
            <%= message.message %>
-           </div>
-           <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></p>
+           </div><br>
+          <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %>
+           <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
           </div>
       <% else %>
-      <div class="item-right">
-      <div id="balloon1">
-
+     <div class="item-left">
+      <div id="balloon">
       <span><%= message.message %></span>
-        </div><br>
+        </div><br><br>
          <div class="clear">
- <p><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %> <span>スタッフ</span></p>
+  <span>スタッフ</span><i class="fa-solid fa-user"></i><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %>
          </div>
          </div>
         <% end %>

@@ -151,71 +151,68 @@ footer{
 
 
 div#balloon{
-    background: #fff;
-    dispay: inline-block;
-    position: relative;
-    width: 500px;
-    height: auto;
-    padding: 20px;
-    border: 1px solid #000;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    margin-left: 40px;
+   display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
 }
 div#balloon:before {
-    content: "";
-    display: inline-block;
-    border: 10px solid transparent;
-    border-right-color: #000;
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    margin-top: -9px;
+     display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
 }
 div#balloon:after {
-    content: "";
-    display: inline-block;
-    border: 9px solid transparent;
-    border-right-color: #fff;
-    position: absolute;
-    left: -18px;
-    top: 50%;
-    margin-top: -8px;
+     content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
 }
 
 div#balloon1{
-    float: right;
-    width: 500px;
-    height: auto;
-    padding: 20px;
-    background: #fff;
-    dispay: inline-block;
-    position: relative;
-    border: 1px solid #000;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+      display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
 }
 div#balloon1:before {
-    content: "";
-    display: inline-block;
-    border: 10px solid transparent;
-    border-left-color: #000;
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    margin-top: -9px;
+      display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
 }
 div#balloon1:after {
     content: "";
-    display: inline-block;
-    border: 9px solid transparent;
-    border-left-color: #fff;
-    position: absolute;
-    right: -18px;
-    top: 50%;
-    margin-top: -8px;
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+
+.message-field {
+  text-align: right;
 }
 
 

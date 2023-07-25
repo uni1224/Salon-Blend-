@@ -1,5 +1,5 @@
 <div class="container message">
-  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 message-index">
+  <div class="wrapper col-md-12 col-md-offset-2 col-sm-10 message-index">
 
 
      <div>チャットルーム<i class="fa-solid fa-envelope"></i></div>
@@ -17,8 +17,8 @@
           <%= message.user.user_name %>
          <div id="balloon">
         <%= message.message %>
-        </div>
-         <p><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></p>
+        </div><br><br>
+        <span> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></span>
          </div>
       <% else %>
       <div class="item-right">
@@ -26,7 +26,7 @@
       <span><%= message.message %></span>
       </div><br>
       <div class="clear">
-           <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %><span>スタッフ</span></p>
+           <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %><i class="fa-solid fa-user"></i><span>スタッフ</span></p>
           </div>
     </div>
     <% end %>
