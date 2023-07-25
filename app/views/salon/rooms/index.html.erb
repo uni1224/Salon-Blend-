@@ -16,7 +16,9 @@
    <tr>
     <td><%= reservation.user.user_name %></td>
    <td> <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %></td>
-    <td><%= link_to "DM", salon_room_path(reservation) %></td>
+    <td><%= link_to salon_room_path(reservation) do %>
+    <i class="fa-solid fa-envelope"></i>
+    <% end %></td>
     </tr>
 <% end %>
  </tbody>

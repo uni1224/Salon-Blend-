@@ -15,7 +15,9 @@
   <tr>
   <td>
     <%= reservation.day.strftime("%Y年%m月%d日(%a)") %><%= reservation.time.strftime( "%H:%M" ) %></td>
-   <td> <%= link_to "DM", room_path(reservation) %>
+   <td> <%= link_to room_path(reservation) do %>
+   <i class="fa-solid fa-envelope"></i>
+   <% end %>
   </td></tr>
 <% end %>
 </tbody>

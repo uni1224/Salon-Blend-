@@ -12,21 +12,20 @@
       <% if message.user %>
          <div class="item-left">
            <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
+           <%= message.user.user_name %>
            <div id="balloon">
-        <%= message.user.user_name %>:
            <%= message.message %>
            </div>
            <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></p>
           </div>
       <% else %>
       <div class="item-right">
-        <span>スタッフ</span>
       <div id="balloon1">
 
       <span><%= message.message %></span>
         </div><br>
          <div class="clear">
- <p><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></p>
+ <p><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %> <span>スタッフ</span></p>
          </div>
          </div>
         <% end %>
