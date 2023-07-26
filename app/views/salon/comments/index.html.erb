@@ -3,38 +3,34 @@
     <div class="container justify-content-center">
       <div class="row">
         <div class="col-10 mx-auto">
-
           <h3><strong><%= flash[:notice] %></strong></h3>
           <h3><strong class="border-bottom border-dark">コメント一覧</strong></h3>
-
-          <table class="table table-hover text-center contents-area">
-            <thead>
-              <tr>
-                <th>会員ID</th>
-                <th>タイトル</th>
-                <th>ニックネーム</th>
-                <th>コメント</th>
-                <th colspan = "3"></th>
-              </tr>
-            </thead>
-            <% @comments.each do |comment| %>
-              <tbody>
-                 <tr>
-                  <td class="py-4"><%= comment.user_id %></td>
-                   <td class="py-4"><%= @post.title %></td>
-                  <td class="py-4"><%= comment.user.nick_name %></td>
-                  <td class="py-4"><%= comment.content %></td>
-                  <td><%= link_to "詳細を確認する", salon_comment_path(comment.id), class: 'btn btn-info btn-lg' %></td>
+            <table class="table table-hover text-center contents-area">
+              <thead>
+                <tr>
+                  <th>会員ID</th>
+                  <th>タイトル</th>
+                  <th>ニックネーム</th>
+                  <th>コメント</th>
+                  <th colspan = "3"></th>
                 </tr>
-              </tbody>
-            <% end %>
-          </table>
-
-            <div class="pagination justify-content-center mt-3">
-            <%= paginate @comments %>
-            </div>
-
-        </div>
+              </thead>
+                <% @comments.each do |comment| %>
+                  <tbody>
+                    <tr>
+                      <td class="py-4"><%= comment.user_id %></td>
+                      <td class="py-4"><%= @post.title %></td>
+                      <td class="py-4"><%= comment.user.nick_name %></td>
+                      <td class="py-4"><%= comment.content %></td>
+                      <td><%= link_to "詳細を確認する", salon_comment_path(comment.id), class: 'btn btn-info btn-lg' %></td>
+                    </tr>
+                  </tbody>
+                <% end %>
+            </table>
+              <div class="pagination justify-content-center mt-3">
+                <%= paginate @comments %>
+              </div>
+          </div>
       </div>
     </div>
   </div>

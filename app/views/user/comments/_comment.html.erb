@@ -1,24 +1,14 @@
-<%= form_with model:[@post, @comment], local: false, remote:true do |f| %>
- <%= f.text_area :content, rows:'5',placeholder: "Any comments on this post?", class:"comment-textarea" %>
-   <div class="text-right">
-    <%= f.submit "Submit", class: "btn btn-primary mt-3 mb-3" %>
-   </div>
-<% end %></div>
 <table>
   <tbody>
     <% @post_comments.each do |comment| %>
- <div class="col-3 text-center">
-   <%#= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpeg", size: '40x40' , class:"rounded-circle"; %>
-
-    <div class="small mb-4"><%= comment.user.user_name %>
-   </div>
-　</div>
-　<div class="small mb-4"><%= comment.content%></div>
-　<!--<p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>-->
-　<% if comment.user == current_user %>
-<div class="small mb-4"><%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, remote:true, data: {confirm: "本当に削除しますか？"}, class: "btn-sm btn-danger" %></div
-<% end %>
- <% end %>
-
+      <div class="col-3 text-center">
+        <%= image_tag comment.user.get_profile_image(40,40) , class:"rounded-circle";  %>
+          <div class="small mb-4"><%= comment.user.nick_name %>
+          </div>
+            <div class="small mb-4">date:<%= comment.created_at.strftime('%Y/%m/%d') %></div>
+　        <div class="small mb-4">コメント:<%= comment.content%></div>
+       </div>
+       <%= link_to "Delete", post_comment_path(@post,comment), method: :delete, remote:true, data: {confirm: "本当に削除しますか？"}, class: "btn-sm btn-danger" %>
+    <% end %>
   </tbody>
 </table>

@@ -1,4 +1,5 @@
 class User::ReservationsController < ApplicationController
+     before_action :authenticate_user!
  
     def index
         @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
@@ -42,18 +43,6 @@ class User::ReservationsController < ApplicationController
             flash.now[:danger] = "変更に失敗しました"
             render :edit
         end
-    end
-
-
-    def destroy
-        @reservation = Reservation.find(params[:id])
-     if @reservation.destroy
-         flash[:success] = "予約を削除しました"
-         redirect_to salon_reservations_path(@reservation)
-     else
-         flash[:success] = "予約の削除に失敗しました"
-         render :index
-     end
     end
 
 

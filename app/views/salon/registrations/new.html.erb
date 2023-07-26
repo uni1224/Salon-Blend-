@@ -1,60 +1,57 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-10 mx-auto">
-<h3>新規登録</h3>
-
-<%= form_with model: @salon, url: salon_registration_path, local: true do |f| %>
-  <%= render "salon/shared/error_messages", resource: resource %>
-
-    <table class="user_info user_form">
-      <thead>
-         <th></th>
-         <th></th>
-         <th></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= f.label :name,"サロン名" %></td>
-          <td colspan="2"><%= f.text_field :name, :placeholder =>"サロンの名前"  %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :introduction, "紹介文"%></td>
-          <td colspan="2"><%= f.text_area :introduction, :placeholder =>"サロンの紹介文を入力してください" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :email,"メールアドレス" %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
-          <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"3000563", class: "jpostal_code" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :address, "住所"%></td>
-          <td colspan="2"><%= f.text_field :address, class: "jpostal_address" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :phone_number, "電話番号(ハイフン無し10 or 11桁)" %></td>
-          <td colspan="2"><%= f.text_field :phone_number, :placeholder =>"22211110000" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-          <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-          <td colspan= "2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-        </tr>
-          <tr>
-          <td></td>
-          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
-        </tr>
-      </tbody>
-    </table>
-   <% end %>
-
-  <h6>既に登録済みの方</h6>
-      <p><%= link_to "こちら", new_salon_session_path, class: "underline" %>からログインしてください。</p>
+      <h3>新規登録</h3>
+        <%= form_with model: @salon, url: salon_registration_path, local: true do |f| %>
+          <%= render "salon/shared/error_messages", resource: resource %>
+            <table class="user_info user_form">
+              <thead>
+                <th></th>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= f.label :name,"サロン名" %></td>
+                  <td colspan="2"><%= f.text_field :name, :placeholder =>"サロンの名前"  %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :introduction, "紹介文"%></td>
+                  <td colspan="2"><%= f.text_area :introduction, :placeholder =>"サロンの紹介文を入力してください" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :email,"メールアドレス" %></td>
+                  <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
+                  <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"3000563", class: "jpostal_code" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :address, "住所"%></td>
+                  <td colspan="2"><%= f.text_field :address, class: "jpostal_address" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :phone_number, "電話番号(ハイフン無し10 or 11桁)" %></td>
+                  <td colspan="2"><%= f.text_field :phone_number, :placeholder =>"22211110000" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+                  <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+                  <td colspan= "2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+                </tr>
+              </tbody>
+            </table>
+        <% end %>
+      <h6>既に登録済みの方</h6>
+        <p><%= link_to "こちら", new_salon_session_path, class: "underline" %>からログインしてください。</p>
     </div>
   </div>
 </div>

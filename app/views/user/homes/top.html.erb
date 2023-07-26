@@ -1,11 +1,10 @@
 <div class="main-container">
-    <div class="col-12 text-center title">
-        <div class="top-title">
-  <h1><strong>Salon Blend</strong></h1>
-  		  <p><strong>このサイトは、サロン予約サイトです。</span></p>
-  		  <p><strong>サロンご利用の際は会員登録が必要になります。</strong></p></div>
-
-  		  <div>
+  <div class="col-12 text-center title">
+    <div class="top-title">
+      <h1><strong>Salon Blend</strong></h1>
+        <p><strong>このサイトは、サロン予約サイトです。</span></p>
+        <p><strong>サロンご利用の際は会員登録が必要になります。</strong></p></div>
+  	<div>
 		  <h4>~New Blog~</h4>
 		  <div>
 		  	<% @posts.each do |post| %>
@@ -14,11 +13,11 @@
             <%= link_to post_path(post.id) do %>
               <%= image_tag post.get_image(190, 160), class:"mx-1" %><br>
             <% end %>
-            <%= post.title %><br>
+              <%= post.title %><br>
           </div>
         </div>
-      <% end %>
+        <% end %>
 		  </div>
 		</div>
-</div>
+  </div>
 </div>

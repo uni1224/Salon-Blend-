@@ -1,5 +1,6 @@
 class Salon::CommentsController < ApplicationController
-     def index
+  before_action :authenticate_salon!
+  def index
     @comments = Comment.page(params[:page]).per(10)
     @post = Post.find_by(params[:id])
   end

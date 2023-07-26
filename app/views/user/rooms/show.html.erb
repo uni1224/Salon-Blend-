@@ -1,39 +1,40 @@
 <div class="container message">
   <div class="wrapper col-md-12 col-md-offset-2 col-sm-10 message-index">
-
-<h4>サロンスタッフとののチャットルーム</h4>
-ルームID<%= @room.id %>
- <div class="ui segment">
-<% if @messages.blank? %>
-  <p>メッセージはありません</p>
-<% else%>
-  <p>メッセージがあります<i class="fa-solid fa-envelope"></i></p>
-  <% @messages.each do |message| %>
-      <% if message.user %>
-       <div class="item-right">
+    <h4>サロンスタッフとののチャットルーム</h4>
+    ルームID<%= @room.id %>
+      <div class="ui segment">
+        <% if @messages.blank? %>
+          <p>メッセージはありません</p>
+        <% else%>
+          <p>メッセージがあります<i class="fa-solid fa-envelope"></i></p>
+            <% @messages.each do |message| %>
+              <% if message.user %>
+              <div class="item-right">
                 <div id="balloon1">
-           <%= message.message %>
-           </div><br>
-          <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %>
-           <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
-          </div>
-      <% else %>
-     <div class="item-left">
-      <div id="balloon">
-      <span><%= message.message %></span>
-        </div><br><br>
-         <div class="clear">
-  <span>スタッフ</span><i class="fa-solid fa-user"></i><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %>
-         </div>
-         </div>
+                  <%= message.message %>
+                </div><br>
+                  <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %>
+                    <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
+               </div>
+               <% else %>
+                <div class="item-left">
+                  <div id="balloon">
+                    <span><%= message.message %></span>
+                  </div><br><br>
+                    <div class="clear">
+                      <span>スタッフ</span><i class="fa-solid fa-user"></i><%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %>
+                    </div>
+                 </div>
+               <% end %>
+             <% end %>
+          <% end %>
+        <%= form_with model: @message, url: message_path, local: true do |f| %>
+      <div class="message-field">
+        <%= f.text_field :message, class:"address-new-form" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit "送信", class:"register-green-btn" %>
         <% end %>
-  <% end %>
-<% end %>
-<%= form_with model: @message, url: message_path, local: true do |f| %>
- <div class="message-field">
-  <%= f.text_field :message, class:"address-new-form" %>
-  <%= f.hidden_field :room_id, value: @room.id %>
-  <%= f.submit "送信", class:"register-green-btn" %>
-<% end %>
-</div>
+      </div>
     </div>
+  </div>
+</div>

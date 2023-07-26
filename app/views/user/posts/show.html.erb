@@ -1,43 +1,44 @@
 <div class="container">
- <div class="col-md-10 mx-auto mt-5">
-  <div class="row justify-content-center mb-5">
-   <div class="col-md-4 headline">
-    </div>
-     </div>
-     <div class="row d-flex justify-content-center">
-      <div class="col-md 4d-flex text-center justify-content-center align-items-center">
-   <%= image_tag @post.image, size: "400x400", class: "shadow p-3 mb-5 bg-white", style: "margin: auto;" %>
-       </div>
-     </div>  
-     <div class="col-12 text-center title">
-          <i class="fa-regular fa-comment"></i><span id="comment_count"><%= @post.comments.count %></span>commnts
-          <i class="fa-regular fa-eye"></i><%= @post.read_counts.count %>views
-           <span id="post_<%= @post.id %>">
-            <%= render 'post', post: @post %>
-             </span>
-     </div>
-        <div class="col-md-12 d-flex justify-content-center mr-5"  style="background-color: #dcdcdc;" >
-         <table class="table table-borderless">
-          <thead>
-           <tr>
-            <th scope="col" style="width: 25%"></th>
-            <th scope="col" style="width: 75%"></th>
-           </tr>
-          </thead>
-            <tbody>
-             <tr>
-               <td>タイトル</td>
-               <td><%= @post.title %></td>
-             </tr>
-              <tr>
-                <td>内容</td>
-                <td><%= @post.body %></td>
-              </tr>
-             </tbody>
-          </table>
-         </div>
-           <div id="comments-area-<%= @post.id %>"><%= render "comments/comment", post: @post,comment: @comment,post_comment: @post_comment %></div>
-           <div id="comment_form-<%= @post.id %>"><%= render "comments/comment_form", post: @post,comment: @comment %></div>
+  <div class="col-md-10 mx-auto mt-5">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-4 headline">
       </div>
+    </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md 4d-flex text-center justify-content-center align-items-center">
+            <%= image_tag @post.image, size: "400x400", class: "shadow p-3 mb-5 bg-white", style: "margin: auto;" %>
+          </div>
+        </div>
+          <div class="col-12 text-center title">
+            <i class="fa-regular fa-comment"></i><span id="comment_count"><%= @post.comments.count %></span>commnts
+              <i class="fa-regular fa-eye"></i><%= @post.read_counts.count %>views
+                <span id="post_<%= @post.id %>">
+                  <%= render 'post', post: @post %>
+                </span>
+          </div>
+                  <div class="col-md-12 d-flex justify-content-center mr-5"  style="background-color: #dcdcdc;" >
+                    <table class="table table-borderless">
+                      <thead>
+                        <tr>
+                          <th scope="col" style="width: 25%"></th>
+                          <th scope="col" style="width: 75%"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>タイトル</td>
+                          <td><%= @post.title %></td>
+                        </tr>
+                        <tr>
+                          <td>内容</td>
+                          <td><%= @post.body %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <div id="comments-area-<%= @post.id %>"><%= render "user/comments/comment", post: @post,comment: @comment,post_comment: @post_comment %>
+                </div>
+              <div id="comment_form-<%= @post.id %>"><%= render "user/comments/comment_form", post: @post,comment: @comment %>
+              </div>
   </div>
 </div>

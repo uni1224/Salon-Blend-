@@ -4,18 +4,17 @@
       <div class="salon-top">
         <h1><strong>Salon Blend</strong></h1>
       </div>
- <%# if salon_signed_in?%>
-<div class="item-index-outpatient">
-新着予約情報
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">予約日</th>
-      <th scope="col">予約時間</th>
-      <th scope="col">名前</th>
-    </tr>
-  </thead>
-    <% @reserve.each do |reserve|%>
+        <div class="item-index-outpatient">
+        新着予約情報
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">予約日</th>
+                <th scope="col">予約時間</th>
+                <th scope="col">名前</th>
+              </tr>
+            </thead>
+        <% @reserve.each do |reserve|%>
   <tbody>
     <tr>
       <td><%= reserve.day.strftime("%Y-%m-%d")%></td>
@@ -23,10 +22,48 @@
       <td><%= link_to reserve.user.user_name,salon_user_path(reserve.user.id)%></td>
     </tr>
   </tbody>
-  <%end%>
-</table>
-</div>
-<%#end%>
+        <%end%>
+          </table>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class = "container my-4">
+  <h4><strong style="background-color:#EEEEEE;">Salon page<i class="fa-solid fa-shop"></i></strong></h4>
+    <div class = "row">
+      <%= link_to "編集する", salon_edit_information_path, class: "btn d-flex align-items-center ms-3", style: "background-color: #dda0dd; color: #fffafa" %>
+    </div>
+      <div class='row'>
+      <table class="table table-bordered border-dark table-hover table-inverse custom-table">
+        <tbody>
+          <tr>
+              <th>サロン名</th>
+               <td><%= @salon.name %></td>
+         </tr>
+         <tr>
+             <th>紹介文</th>
+             <td><%= @salon.introduction %></td>
+         </tr>
+         <tr>
+              <th>メールアドレス</th>
+               <td><%= @salon.email %></td>
+         </tr>
+         <tr>
+              <th>電話番号</th>
+               <td><%= @salon.phone_number %></td>
+         </tr>
+         <tr>
+              <th>郵便番号</th>
+               <td><%= @salon.postal_code %></td>
+         </tr>
+         <tr>
+              <th>住所</th>
+               <td><%= @salon.address %></td>
+         </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
+  <div>
  </div>
-  </div>
 </div>

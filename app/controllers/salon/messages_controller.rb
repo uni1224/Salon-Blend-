@@ -1,4 +1,5 @@
 class Salon::MessagesController < ApplicationController
+    before_action :authenticate_salon!
    def create
       message = Message.new(message_params)
     if message.save

@@ -1,7 +1,8 @@
+<%# コメントフォーム %>
 <%= form_with model:[@post, @comment], local: false do |f| %>
- <%= f.text_area :content, rows:'5',placeholder: "Any comments on this post?", class:"comment-textarea" %>
+  <%= f.text_area :content, rows:'5',placeholder: "Any comments on this post?", class:"comment-textarea" %>
    <div class="text-right">
-    <%= f.submit "Submit", class: "btn btn-primary mt-3 mb-3" %>
+     <%= f.submit "Submit", class: "btn btn-primary mt-3 mb-3" %>
    </div>
-<% end %></div>
+<% end %>
 

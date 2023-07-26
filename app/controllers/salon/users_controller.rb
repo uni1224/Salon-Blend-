@@ -1,4 +1,5 @@
 class Salon::UsersController < ApplicationController
+    before_action :authenticate_salon!
     def index
         @users = User.all
     end

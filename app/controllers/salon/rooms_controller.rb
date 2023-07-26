@@ -1,4 +1,5 @@
 class Salon::RoomsController < ApplicationController
+  before_action :authenticate_salon!
   before_action :set_room, only: :show
 
   def index

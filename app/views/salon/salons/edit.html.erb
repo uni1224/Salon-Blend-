@@ -1,44 +1,40 @@
-<!-- form_with部分 -->
-<%= form_with model: @salon, url: salon_update_information_path do |f| %>
-  <div class="container my-5">
+      <!-- form_with部分 -->
+      <%= form_with model: @salon, url: salon_update_information_path do |f| %>
+<div class="container my-5">
   <div class="row">
-  <div class="col-10 mx-auto">
-  <h5 class="ml-5 mb-5"><span class="title-custom px-4">サロンページ編集</span></h5>
-
-      <table class="table table-borderless">
-    <%#= render 'layouts/errors', obj: @item %>
+    <div class="col-10 mx-auto">
+      <h5 class="ml-5 mb-5"><span class="title-custom px-4">サロンページ編集</span></h5>
+        <table class="table table-borderless">
+          <%= render 'layouts/error', obj: @salon %>
         <div class="col-8 mx-auto form-group">
-         <tr>
-    
-
+          <tr>
             <td><%= f.label :name,"サロン名" %></td>
-          <td colspan="2"><%= f.text_field :name, :placeholder =>"#{@salon.name}"  %></td>
-         </tr>
-         <tr>
-          <td><%= f.label :introduction, "紹介文"%></td>
-          <td colspan="2"><%= f.text_area :introduction, :placeholder =>"#{@salon.introduction}"%></td>
-        </tr>
-           <td><%= f.label :email,"メールアドレス" %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email",:placeholder =>"#{@salon.email}" %></td>
-         </tr>
-         <tr>
+            <td colspan="2"><%= f.text_field :name, :placeholder =>"#{@salon.name}"  %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :introduction, "紹介文"%></td>
+            <td colspan="2"><%= f.text_area :introduction, :placeholder =>"#{@salon.introduction}"%></td>
+          </tr>
+            <td><%= f.label :email,"メールアドレス" %></td>
+            <td colspan="2"><%= f.email_field :email, autocomplete: "email",:placeholder =>"#{@salon.email}" %></td>
+          </tr>
+          <tr>
             <td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
-          <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@salon.postal_code}", class: "jpostal_code" %></td>
-         </tr>
-         <tr>
-          <td><%= f.label :address, "住所"%></td>
-          <td colspan="2"><%= f.text_field :address, :placeholder =>"#{@salon.address}",class: "jpostal_address" %></td>
-        </tr>
-         <tr>
-          <td><%= f.label :phone_number, "電話番号(ハイフン無し10 or 11桁)" %></td>
-          <td colspan="2"><%= f.text_field :phone_number, :placeholder =>"#{@salon.phone_number}" %></td>
-        </tr>
-
-    <!--登録ボタン-->
+            <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@salon.postal_code}", class: "jpostal_code" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address, "住所"%></td>
+            <td colspan="2"><%= f.text_field :address, :placeholder =>"#{@salon.address}",class: "jpostal_address" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :phone_number, "電話番号(ハイフン無し10 or 11桁)" %></td>
+            <td colspan="2"><%= f.text_field :phone_number, :placeholder =>"#{@salon.phone_number}" %></td>
+          </tr>
+            <!--登録ボタン-->
             <td><%= f.submit '編集内容を保存する' ,class:"btn btn-success" %></td>
-       </table>
-     <% end %>
+        </table>
+      <% end %>
+        </div>
+    </div>
   </div>
-  </div>
-  </div>
-  </div>
+</div>

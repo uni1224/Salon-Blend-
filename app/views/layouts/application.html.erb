@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>SalonBlend</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/561b0f0e8b.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <html>
+    <head>
+      <title>SalonBlend</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+          <%= csrf_meta_tags %>
+          <%= csp_meta_tag %>
+        <script src="https://kit.fontawesome.com/561b0f0e8b.js" crossorigin="anonymous"></script>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <header>
-
-      <%= render 'layouts/header' %>
-    </header>
-      <%= render partial: 'layouts/flash' %>
-<main>
-  <%= yield %>
-</main>
-<div class="wrapper">
-<footer>
-      <%= render "layouts/footer" %>
-      </footer>
-      </div>
-  </body>
-</html>
+    </head>
+      <body>
+        <header>
+          <%= render 'layouts/header' %>
+        </header>
+        <%# フラッシュメッセージ %>
+          <%= render partial: 'layouts/flash' %>
+            <main>
+              <%= yield %>
+            </main>
+          <div class="wrapper">
+            <footer>
+              <%= render "layouts/footer" %>
+            </footer>
+          </div>
+      </body>
+  </html>

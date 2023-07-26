@@ -1,4 +1,5 @@
 class Salon::ReservationsController < ApplicationController
+    before_action :authenticate_salon!
     def index
         @reservations = Reservation.all
     end
@@ -10,7 +11,8 @@ class Salon::ReservationsController < ApplicationController
     def edit
         @reservation = Reservation.find_by(params[:id])
     end
- def update
+    
+    def update
         @reservation=Reservation.find(params[:id])
         if @reservation.update(reservation_params)
             flash[:success] =  "予約を変更しました"
@@ -22,13 +24,14 @@ class Salon::ReservationsController < ApplicationController
     end
 
     def destroy
-        @reservation = Reservation.find_by(params[:id])
-    if  @reservation.destroy
-         flash[:success] = "予約を削除しました。"
-         redirect_to salon_reservations_path(reservation_id)
-    else
+        @reservation = Reservation.find(params[:id])
+     if @reservation.destroy
+         flash[:success] = "予約を削除しました"
+         redirect_to salon_reservations_path(@reservation)
+     else
+         flash[:success] = "予約の削除に失敗しました"
          render :index
-    end
+     end
     end
 
     private

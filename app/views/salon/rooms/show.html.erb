@@ -1,47 +1,46 @@
 <div class="container message">
   <div class="wrapper col-md-12 col-md-offset-2 col-sm-10 message-index">
-
-
-     <div>チャットルーム<i class="fa-solid fa-envelope"></i></div>
-ルームID<%= @room.id %>
- <div class="ui segment">
-<% if @messages.blank? %>
-  <p>メッセージはありません</p>
-<% else%>
-  <p>メッセージがあります<i class="fa-solid fa-envelope"></i></p>
-  <% @messages.each do |message| %>
-    <div>
-      <% if message.user %>
-      <div class="item-left">
-         <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
-          <%= message.user.user_name %>
-         <div id="balloon">
-        <%= message.message %>
-        </div><br><br>
-        <span> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></span>
-         </div>
-      <% else %>
-      <div class="item-right">
-       <div id="balloon1">
-      <span><%= message.message %></span>
-      </div><br>
-      <div class="clear">
-           <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %><i class="fa-solid fa-user"></i><span>スタッフ</span></p>
+    <div>チャットルーム<i class="fa-solid fa-envelope"></i></div>
+    ルームID<%= @room.id %>
+      <div class="ui segment">
+        <% if @messages.blank? %>
+          <p>メッセージはありません</p>
+        <% else%>
+          <p>メッセージがあります<i class="fa-solid fa-envelope"></i></p>
+            <% @messages.each do |message| %>
+        <% if message.user %>
+          <div class="item-left">
+            <%= image_tag message.user.get_profile_image(40,40) , class:"rounded-circle";  %>
+              <%= message.user.user_name %>
+                <div id="balloon">
+                  <%= message.message %>
+                </div><br><br>
+                  <span> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %></span>
           </div>
-    </div>
-    <% end %>
-  <% end %>
-<% end %>
-<% if @close_reservation %>
-  <p>来店日を3日以上過ぎている為、メッセージ送信はできません</p>
-<% else %>
-  <%= form_with model: [:salon, @message], url: salon_message_path, local: true do |f| %>
-   <div class="message-field">
-    <%= f.text_field :message, class:"address-new-form" %>
-    <%= f.hidden_field :room_id, value: @room.id %>
-    <%= f.submit "送信", class:"register-green-btn" %>
-     </div>
-  <% end %>
-<% end %>
+        <% else %>
+          <div class="item-right">
+            <div id="balloon1">
+              <span><%= message.message %></span>
+            </div><br>
+                <div class="clear">
+                  <p> <%= message.created_at.time.strftime("%Y/%m/%d/%H:%M") %><i class="fa-solid fa-user"></i><span>スタッフ</span></p>
+                </div>
+          </div>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% if @close_reservation %>
+          <p>来店日を3日以上過ぎている為、メッセージ送信はできません</p>
+        <% else %>
+            <%= form_with model: [:salon, @message], url: salon_message_path, local: true do |f| %>
+              <div class="message-field">
+                <%= f.text_field :message, class:"address-new-form" %>
+                  <%= f.hidden_field :room_id, value: @room.id %>
+                    <%= f.submit "送信", class:"register-green-btn" %>
+              </div>
+        <% end %>
+        <% end %>
+
+      </div>
   </div>
-    </div>
+</div>

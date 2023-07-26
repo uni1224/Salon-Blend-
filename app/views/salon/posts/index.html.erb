@@ -1,41 +1,36 @@
 <div class="container">
   <div class="row pt-5 pl-5 ml-5">
     <div class="col-12 text-center title">
-        <h4>Blog<i class="fa-brands fa-instagram"></i></h4></div>
+      <h4>Blog<i class="fa-brands fa-instagram"></i></h4></div>
         <%= link_to new_salon_post_path do%>
-        追加
-        <i class="fa-solid fa-square-plus"></i>
+          追加
+          <i class="fa-solid fa-square-plus"></i>
         <% end %>
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-       <% @posts.each do |post| %>
-     <tr>
-         <td><%= image_tag post.image, size: "200x200" , class: "shadow p-3 mb-5 bg-white", style: "margin: auto;" %></td>
-         
- <td><%= link_to post.title, salon_post_path(post) %></td>
- <td><%= post.created_at.strftime("%Y年%m月%d日(%a)")%></td>
- <td>
-<i class="fa fa-heart like"></i>
-<%= post.likes.count %></td>
-<td><i class="fa-regular fa-comment">
-    <%= post.comments.count %>
-</td>
- </tr>
-<%end%>
- </tr>
-  </tbody>
-</table>
-
-         </div>
-
- </div>
+          <table class='table table-hover table-inverse'>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+              <tbody>
+                <% @posts.each do |post| %>
+              <tr>
+                <td><%= image_tag post.image, size: "200x200" , class: "shadow p-3 mb-5 bg-white", style: "margin: auto;" %></td>
+                <td><%= link_to post.title, salon_post_path(post) %></td>
+                <td><%= post.created_at.strftime("%Y年%m月%d日(%a)")%></td>
+                <td>
+                <i class="fa fa-heart like"></i>
+                <%= post.likes.count %></td>
+                <td><i class="fa-regular fa-comment">
+               <%= post.comments.count %></td>
+              </tr>
+                <%end%>
+              </tbody>
+          </table>
+  </div>
+</div>
 <%= paginate @posts %>
 

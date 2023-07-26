@@ -1,52 +1,43 @@
 <div class="container">
   <div class="col-md-10 mx-auto mt-5">
-
     <div class="row justify-content-center mb-5">
-    <div class="col-md-4 headline">
-
-     <h4>Post Detail<i class="fa-regular fa-image"></i></h4>
+      <div class="col-md-4 headline">
+        <h4>Post Detail<i class="fa-regular fa-image"></i></h4>
     </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-
-    <div class="col-md 4d-flex text-center justify-content-center align-items-center">
-
-     <%= image_tag @post.image, size: "200x200" %>
-</div>
-    <div class="col-md-8 d-flex justify-content-center mr-5"  style="background-color: #dcdcdc;" >
-    <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th scope="col" style="width: 25%"></th>
-          <th scope="col" style="width: 75%"></th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>タイトル</td>
-        <td><%= @post.title %></td>
-      </tr>
-      <tr>
-        <td>内容</td>
-        <td><%= @post.body %></td>
-      </tr>
-      <tr>
-           <td>コメント数</td>
-           <td><%= @post.comments.count %></td>
-      </tr>
-
-
-     </tbody>
-    </table>
-    </div>
-
-
   </div>
-   <div class=" mt-3 text-center">
-      <%= link_to "編集", edit_salon_post_path(@post.id), class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
-      <%= link_to "削除", @posts, method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn w-25 mt-3 change_button", style: "background-color:#a52a2a;"%>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md 4d-flex text-center justify-content-center align-items-center">
+        <%= image_tag @post.image, size: "200x200" %>
       </div>
-       <div id="comments-area"><%= render "salon/comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
-
+        <div class="col-md-8 d-flex justify-content-center mr-5"  style="background-color: #dcdcdc;" >
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25%"></th>
+                <th scope="col" style="width: 75%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>タイトル</td>
+                <td><%= @post.title %></td>
+              </tr>
+              <tr>
+                <td>内容</td>
+                <td><%= @post.body %></td>
+              </tr>
+              <tr>
+                <td>コメント数</td>
+                <td><%= @post.comments.count %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <div class=" mt-3 text-center">
+          <%= link_to "編集", edit_salon_post_path(@post.id), class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
+          <%= link_to "削除", @posts, method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn w-25 mt-3 change_button", style: "background-color:#a52a2a;"%>
+        </div>
+          <div id="comments-area"><%= render "salon/comments/comment", post: @post,comment: @comment,post_comments: @post_comments %></div>
+  </div>
 </div>
