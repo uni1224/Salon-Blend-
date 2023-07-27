@@ -28,7 +28,7 @@
                <% end %>
              <% end %>
           <% end %>
-        <%= form_with model: @message, url: message_path, local: true do |f| %>
+        <%= form_with model: @message, url: message_path, remote: true do |f| %>
       <div class="message-field">
         <%= f.text_field :message, class:"address-new-form" %>
           <%= f.hidden_field :room_id, value: @room.id %>
