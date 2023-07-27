@@ -5,7 +5,9 @@
         <h1><strong>Salon Blend</strong></h1>
       </div>
         <div class="item-index-outpatient">
+          <h4>
         新着予約情報
+        </h4>
           <table class="table">
             <thead>
               <tr>
@@ -30,9 +32,6 @@
       </div>
 <div class = "container my-4">
   <h4><strong style="background-color:#EEEEEE;">Salon page<i class="fa-solid fa-shop"></i></strong></h4>
-    <div class = "row">
-      <%= link_to "編集する", salon_edit_information_path, class: "btn d-flex align-items-center ms-3", style: "background-color: #dda0dd; color: #fffafa" %>
-    </div>
       <div class='row'>
       <table class="table table-bordered border-dark table-hover table-inverse custom-table">
         <tbody>
@@ -62,6 +61,9 @@
          </tr>
         </tbody>
       </table>
+      <div class="text-center">
+      <%= link_to "編集する", salon_edit_information_path, class: "btn d-flex align-items-center ms-3", style: "background-color: #008080; color: #fffafa" %>
+    </div>
     </div>
    </div>
   <div>

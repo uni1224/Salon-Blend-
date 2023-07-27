@@ -20,7 +20,7 @@ class Salon::UsersController < ApplicationController
         flash[:success] = "会員情報を変更に成功しました"
           redirect_to salon_user_path(@user.id)
     else
-        flash.now[:danger] = "会員情報の更新に失敗しました"
+        flash[:danger] = "会員情報の更新に失敗しました"
           render :edit
     end
     end
@@ -29,6 +29,6 @@ class Salon::UsersController < ApplicationController
   private
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number, :email, :is_deleted)
+        params.require(:user).permit(:first_name, :last_name, :first_name_kana, :nick_name, :birthday, :last_name_kana, :postal_code, :address, :phone_number, :email, :is_deleted)
     end
 end
