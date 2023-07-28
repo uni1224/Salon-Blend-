@@ -1,6 +1,6 @@
 <%= form_with model: [:salon, @reservation], url: salon_reservation_path do |f| %>
   <div class="container">
-    <div class="row">
+    <div class="row pt-5">
       <div class="col-12 text-center title">
         <h4>予約時間変更</h4>
             <div class="time form-group">
@@ -11,7 +11,7 @@
       </div>
         <% end %>
           <div class="col-12 text-right">
-            <%= link_to '戻る', salon_reservations_path %>
+            <%= link_to '戻る', salon_reservation_path %>
           </div>
       </div>
     </div>
