@@ -26,7 +26,10 @@
 
 ・サロン側の集客のため
 ## 設計書
-後ほど作成予定​
+ER図
+https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1kHX8zsfGCvpvKPuh-eQmtx-_hJBFrfqH
+テーブル提議書
+https://docs.google.com/spreadsheets/d/1qRHjc3_cIu96Z1aTodrjhwRuOF_eAyJZk5p_hvhT_7Y/edit#gid=375253997
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
