@@ -16,7 +16,7 @@
           <tr>
             <td>
               <%= link_to post_path(post.id) do %>
-              <%= image_tag post.image, size: "250x250" , class: "shadow p-3 mb-1 bg-white", style: "margin: auto;" %>
+              <%= image_tag post.image, size: "250x280" , class: "shadow p-3 mb-1 bg-white", style: "margin: auto;" %>
         <% end %>
             </td>
             <td><%= post.created_at.strftime('%Y/%m/%d') %>
