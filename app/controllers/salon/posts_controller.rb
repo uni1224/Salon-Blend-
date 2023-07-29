@@ -1,7 +1,7 @@
 class Salon::PostsController < ApplicationController
     before_action :authenticate_salon!
     def index
-        @posts = Post.all.page(params[:page]).per(1)
+        @posts = Post.all.page(params[:page]).per(5)
     end
 
     def show
