@@ -1,15 +1,23 @@
 <div class="container">
   <div class="row pt-5 pl-5 ml-5">
     <div class="customer-group">
+
       <div class="title">
-        <h3 class="text-center bg-light">顧客一覧 <i class="fa-solid fa-users"></i></h3>
+        <h3 class="text-center">顧客一覧 <i class="fa-solid fa-users"></i></h3>
+        <%#サロン側の検索%>
+          <% if salon_signed_in? %>
+            <%= form_with url: searches_search_path, local: true, method: :get do |f| %>
+              <%= f.text_field :word, placeholder:"顧客検索"%>
+                <%= button_tag type: "submit", class:"btn btn-outline btn-sm glass" do%><div class="text-info"><i class="fa-solid fa-magnifying-glass"></i></div><% end %>
+            <% end %>
+          <% end %>
       </div>
     </div>
   </div>
     <div class="row pt-5 justify-content-center">
       <div class="col-9">
-        <table class="table">
-          <thead class="bg-light text-center">
+       <table class='table table-hover table-inverse'>
+          <thead class="text-center">
             <tr>
               <th>会員ID</th>
               <th>氏名</th>
@@ -39,4 +47,3 @@
       </div>
     </div>
 </div>
-  
