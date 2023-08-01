@@ -9,6 +9,14 @@
       <div class="col-md 4d-flex text-center justify-content-center align-items-center">
         <%= image_tag @post.image, size: "300x330" %>
       </div>
+      <p>
+        <div class="tag-box">
+<% @post.tags.each do |tag| %>
+  <span class="label"><%= tag.name %></span>
+<% end %>
+</div>
+</p>
+  
         <div class="col-md-8 d-flex justify-content-center mr-5"  style="background-color: #dcdcdc;" >
           <table class="table table-borderless">
             <thead>

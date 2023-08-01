@@ -15,8 +15,12 @@ class Salon::PostsController < ApplicationController
     end
 
     def create
-       @post = Post.new(post_params)
+        @post = Post.new(post_params)
+        tags = Vision.get_image_data(post_params[:image])
         if @post.save
+            tags.each do |tag|
+             @post.tags.create(name: tag)
+             end
              flash[:success] =  "投稿が完了しました"
             redirect_to salon_post_path(@post.id)
         else
