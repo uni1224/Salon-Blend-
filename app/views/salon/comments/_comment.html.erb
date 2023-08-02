@@ -1,15 +1,8 @@
-<table>
-  <tbody>
-    <% @post_comments.each do |comment| %>
-      <div class="col-3 text-center">
-        <%= image_tag comment.user.get_profile_image(40,40) , class:"rounded-circle";  %>
-          <div class="small mb-4"><%= comment.user.nick_name %>
-          </div>
-            <div class="small mb-4">date:<%= comment.created_at.strftime('%Y/%m/%d') %>
-            </div>
-　        <div class="small mb-4">コメント:<%= link_to comment.content, salon_comments_path(comment.id)%>
-　      </div>
-      </div>
-    <% end %>
-  </tbody>
-</table>
+<% @post_comments.each do |comment| %>
+  <div class="balloon-009">
+    <%= image_tag comment.user.get_profile_image(40,40) , class:"rounded-circle";  %>
+      <%= comment.user.nick_name %>
+      <p><%= link_to comment.content, salon_comments_path(comment.id)%></p>
+    <%= comment.created_at.strftime('%Y/%m/%d') %>
+  </div>
+<% end %>
