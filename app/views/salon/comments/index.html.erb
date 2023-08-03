@@ -9,7 +9,6 @@
               <thead>
                 <tr>
                   <th>会員ID</th>
-                  <th>タイトル</th>
                   <th>ニックネーム</th>
                   <th>コメント</th>
                   <th colspan = "3"></th>
@@ -19,7 +18,6 @@
                   <tbody>
                     <tr>
                       <td class="py-4"><%= comment.user_id %></td>
-                      <td class="py-4"><%= @post.title %></td>
                       <td class="py-4"><%= comment.user.nick_name %></td>
                       <td class="py-4"><%= comment.content %></td>
                       <td><%= link_to "詳細を確認する", salon_comment_path(comment.id), class: 'btn btn-info btn-lg' %></td>
