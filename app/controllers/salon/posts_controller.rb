@@ -16,7 +16,7 @@ class Salon::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        tags = Vision.get_image_data(post_params[:image])
+        tags = Vision.get_image_tag(post_params[:image])
         if @post.save
             tags.each do |tag|
              @post.tags.create(name: tag)
@@ -35,7 +35,11 @@ class Salon::PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
+         tags = Vision.get_image_tag(post_params[:image])
         if @post.update(post_params)
+             tags.each do |tag|
+             @post.tags.update(name: tag)
+             end
             flash[:success] =  "投稿を編集しました"
             redirect_to salon_post_path(@post)
         else
