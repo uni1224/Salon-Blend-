@@ -22,7 +22,7 @@
 .salon-top {
   background-image: image-url('26935184_s.jpg');
   background-size: cover;
-  background-position: center;          /* 全画面 */ 
+  background-position: center;          /* 全画面 */
   color: #696969;
   background-repeat: no-repeat;
 	background-size: 60% auto;
@@ -116,7 +116,7 @@ footer{
   margin-top: 70px;
   margin-bottom: 80px;
   background-color: #b0c4de;
-  
+
 }
 
 .segment {
@@ -248,6 +248,7 @@ left: 0; /*左から(0px)移動*/
     justify-content: center;
     align-items: start;
     gap: 0 22px;
+    margin: 25px;
 }
 
 .balloon-009 img {
@@ -276,7 +277,9 @@ left: 0; /*左から(0px)移動*/
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
     content: '';
 }
-
+.sentiment-score {
+  color: #b22222;
+}
 
 
 

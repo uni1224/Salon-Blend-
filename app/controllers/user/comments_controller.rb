@@ -7,6 +7,7 @@ class User::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
+    @comment.score = Language.get_comment(comment_params[:content])
     @comment.save
     flash[:success] = 'コメントしました'
   end
@@ -20,7 +21,7 @@ class User::CommentsController < ApplicationController
   end
 
   private
-  
+
    def ensure_correct_user
     @comment = Comment.find(params[:id])
     unless @comment.user == current_user
