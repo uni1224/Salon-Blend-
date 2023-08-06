@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2023_08_04_011652) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.string "phone_number", default: "", null: false
     t.string "postal_code", default: "", null: false
     t.string "address", default: "", null: false

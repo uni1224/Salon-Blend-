@@ -35,11 +35,11 @@ class Salon::PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-         tags = Vision.get_image_tag(post_params[:image])
+        tags = Vision.get_image_tag(post_params[:image])
         if @post.update(post_params)
-             tags.each do |tag|
-             @post.tags.update(name: tag)
-             end
+            tags.each do |tag|
+            @post.tags.update(name: tag)
+            end
             flash[:success] =  "投稿を編集しました"
             redirect_to salon_post_path(@post)
         else
