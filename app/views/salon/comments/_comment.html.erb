@@ -4,6 +4,20 @@
       <%= comment.user.nick_name %>
       <p><%= link_to comment.content, salon_comments_path(comment.id)%></p>
     <%= comment.created_at.strftime('%Y/%m/%d') %>
-    <span class="sentiment-score">[comment score <i class="fa-solid fa-check"></i> <%= comment.score %>]</span>
+    <span class="sentiment-score">
+      <% if comment.score > 0 %>
+        <div class="score-ok">
+          score<%= comment.score %>
+          <i class="fa-regular fa-thumbs-up">
+          </i>
+        </div>
+      <% else %>
+        <div class="score-ng">
+          score<%= comment.score %>
+          <i class="fa-solid fa-circle-exclamation">
+          </i>
+        </div>
+      <% end %>
+    </span>
   </div>
 <% end %>

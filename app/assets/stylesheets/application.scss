@@ -1,3 +1,19 @@
+// 画面サイズが700px以下の場合
+@media (max-width: 480px) {
+ .top-title{
+  color: white;
+  padding: 50px;
+  font-size: 6px;
+}
+.blog {
+  width: 50px;
+  image-size: 10px;
+}
+footer {
+  position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}
+}
 .main-container {
   background-image: image-url('IMG_4746.jpg');
   background-size: cover;
@@ -106,8 +122,7 @@ footer{
     color: #fff;
     text-align: center;
     padding: 30px 0;
-
- position: absolute;/*←絶対位置*/
+    position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
 }
 
@@ -277,10 +292,13 @@ left: 0; /*左から(0px)移動*/
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
     content: '';
 }
-.sentiment-score {
+
+.score-ok {
+  color: #0000ff;
+}
+.score-ng {
   color: #b22222;
 }
-
 
 
 
