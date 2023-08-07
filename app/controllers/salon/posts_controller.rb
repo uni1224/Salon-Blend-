@@ -36,16 +36,19 @@ class Salon::PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
         tags = Vision.get_image_tag(post_params[:image])
-        if @post.update(post_params)
-            tags.each do |tag|
-            @post.tags.update(name: tag)
-            end
-            flash[:success] =  "投稿を編集しました"
-            redirect_to salon_post_path(@post)
-        else
-            flash.now[:danger] = "編集に失敗しました"
-            render :edit
-        end
+        # 既存のタグを削除
+        @post.tags.destroy_all
+        # 新しいタグを追加
+        tags.each do |tag|
+        @post.tags.create(name: tag)
+    end
+      if @post.update(post_params)
+           flash[:success] = "投稿を編集しました"
+           redirect_to salon_post_path(@post)
+      else
+           flash.now[:danger] = "編集に失敗しました"
+           render :edit
+      end
     end
 
     def destroy
