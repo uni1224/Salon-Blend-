@@ -1,17 +1,143 @@
 // 画面サイズが700px以下の場合
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .wrapper {
+    min-height: calc(100vh - 120px); /* フッターの高さを引いた値 */
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  footer {
+    padding: 15px 0;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* 追加：フッターを横幅いっぱいに広げる */
+    background-color: #696969;
+    color: #fff;
+    text-align: center;
+  }
+.table {
+    width: 100%; /* テーブルの幅を100%に設定 */
+  }
+
+  .table img {
+    max-width: 100%; /* テーブル内の画像を幅いっぱいに表示 */
+    height: auto; /* アスペクト比を保持したまま高さを自動調整 */
+  }
+
+  .post-detail-table td {
+  display: block; /* セルをブロック要素として表示 */
+  text-align: center; /* テキストを中央に配置 */
+  padding: 10px; /* セルのパディングを調整 */
+}
+
+.post-detail-table th {
+  display: none; /* スマートフォンではヘッダーを非表示にする */
+}
+
+  .title h4 {
+    font-size: 24px; /* タイトルのフォントサイズを調整 */
+    margin-bottom: 15px; /* タイトルの下に余白を追加 */
+  }
+  .text-center {
+    margin-bottom: 0; /* 追加：余白を調整 */
+  }
+     padding: 0 15px; /* コンテナの左右に余白を追加 */
+
+  .title {
+    margin-bottom: 20px; /* タイトルとコンテンツ間の余白を調整 */
+  }
+
+  .items {
+    width: 100%; /* アイテムの幅を100%に変更 */
+    text-align: center; /* アイテムを中央に配置 */
+    margin-bottom: 15px; /* アイテム間の余白を追加 */
+  }
+
+  .items img {
+    max-width: 100%; /* 画像の幅を100%に調整 */
+    height: auto; /* 高さを自動調整 */
+  }
  .top-title{
   color: white;
   padding: 50px;
   font-size: 6px;
 }
-.blog {
-  width: 50px;
-  image-size: 10px;
+
+ .post-detail-container {
+  padding: 0 15px; /* コンテナの左右に余白を追加 */
+  overflow-x: hidden; /* 横スクロールを非表示にする */
 }
-footer {
-  position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
+
+.post-detail-container .col-md-12,
+.post-detail-container .col-md-5,
+.post-detail-container .col-12,
+.post-detail-container .col-8 {
+  width: 100%; /* 幅を100%に調整 */
+  padding: 0; /* パディングを削除 */
+}
+  .row.d-flex.justify-content-center {
+    flex-wrap: wrap; /* 行内の要素を折り返す */
+  }
+
+  .title {
+    font-size: 18px; /* タイトルのフォントサイズを調整 */
+    margin: 15px 0; /* タイトルの上下に余白を追加 */
+  }
+
+  .tag-box {
+    text-align: center; /* タグボックス内のテキストを中央に配置 */
+  }
+
+  .label {
+    display: inline-block; /* インライン要素として表示 */
+    margin: 5px; /* タグ間の余白を追加 */
+  }
+
+  .mt-3.text-center {
+    margin-top: 15px; /* 上部の余白を追加 */
+  }
+
+  .btn.w-25.mt-3.change_button {
+    width: 100%; /* ボタンの幅を100%に調整 */
+  }
+
+.user-edit-container {
+    padding: 0 15px; /* コンテナの左右に余白を追加 */
+    overflow-x: hidden; /* 横スクロールを非表示にする */
+}
+  .user-edit-table td {
+  display: block; /* セルをブロック要素として表示 */
+  text-align: center; /* テキストを中央に配置 */
+  padding: 10px; /* セルのパディングを調整 */
+}
+
+.user-edit-table th {
+  display: none; /* スマートフォンではヘッダーを非表示にする */
+}
+
+.salon-edit-container {
+    padding: 0 15px; /* コンテナの左右に余白を追加 */
+    overflow-x: hidden; /* 横スクロールを非表示にする */
+}
+  .salon-edit-table td {
+  display: block; /* セルをブロック要素として表示 */
+  text-align: center; /* テキストを中央に配置 */
+  padding: 10px; /* セルのパディングを調整 */
+}
+
+.salon-edit-table th {
+  display: none; /* スマートフォンではヘッダーを非表示にする */
+}
+
+.new-post-container {
+    padding: 0 15px; /* コンテナの左右に余白を追加 */
+    overflow-x: hidden; /* 横スクロールを非表示にする */
+}
+  .new-post-table td {
+  display: block; /* セルをブロック要素として表示 */
+  text-align: center; /* テキストを中央に配置 */
+  padding: 10px; /* セルのパディングを調整 */
 }
 }
 .main-container {
@@ -110,7 +236,7 @@ footer {
 }
 
 .wrapper{
-    min-height: 60vh;
+    min-height: 80vh;
     position: relative;/*←相対位置*/
     padding-bottom: 120px;/*←footerの高さ*/
     box-sizing: border-box;

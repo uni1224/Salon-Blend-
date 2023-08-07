@@ -1,10 +1,10 @@
       <!-- form_with部分 -->
       <%= form_with model: @salon, url: salon_update_information_path do |f| %>
-<div class="container my-5">
+<div class="container salon-edit-container my-5">
   <div class="row">
     <div class="col-10 mx-auto">
       <h5 class="ml-5 mb-5"><span class="title-custom px-4">サロンページ編集</span></h5>
-        <table class="table table-borderless">
+        <table class="table table-borderless salon-edit-table">
           <%= render 'layouts/error', obj: @salon %>
         <div class="col-8 mx-auto form-group">
           <tr>

@@ -1,10 +1,10 @@
         <!-- form_with部分 -->
         <%= form_with model: @post, url:salon_posts_path, method: :post do |f|  %>
-<div class="container my-5">
+<div class="container new-post-container my-5">
   <div class="row">
     <div class="col-10 mx-auto">
       <h5 class="ml-5 mb-5"><span class="title-custom px-4">New Post <i class="fa-solid fa-file-circle-plus"></i></span></h5>
-        <table class="table table-borderless">
+        <table class="table table-borderless new-post-table">
           <%= render 'layouts/error', obj: @post %>
             <div class="col-8 mx-auto form-group">
               <tr>
