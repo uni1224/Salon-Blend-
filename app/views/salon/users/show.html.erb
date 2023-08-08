@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container salon-user-container">
   <div class="row pt-5">
     <div class="title pt-4 ml-5">
       <h3 class="text-center bg-light"><%= "#{@user.last_name}#{@user.first_name}さんの会員情報" %> <i class="fa-regular fa-user"></i></h3>
@@ -6,7 +6,7 @@
   </div>
   <div class="row pl-5">
     <div class="col-8">
-      <table class="table table-borderless">
+      <table class="table table-borderless salon-user-table">
         <tr>
           <th>会員ID</th>
             <td><%= @user.id %></td>
