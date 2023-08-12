@@ -50,8 +50,8 @@ class User::UsersController < ApplicationController
   def set_current_user
     @user = current_user
   end
-    private
-    def user_params
+  
+  def user_params
     params.require(:user).permit(:last_name, :first_name, :first_name_kana, :last_name_kana,:nick_name,:birthday,:profile_image,:email, :postal_code, :address, :phone_number)
-    end
+  end
 end
