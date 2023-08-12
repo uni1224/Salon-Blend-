@@ -5,7 +5,7 @@
     position: relative;
     box-sizing: border-box;
   }
-  
+
   footer {
     padding: 15px 0;
     font-size: 14px;
@@ -16,31 +16,46 @@
     color: #fff;
     text-align: center;
   }
-  
+
+  .title h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .title p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .title h4 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
   .table {
     width: 100%;
   }
-  
+
   .table img {
     max-width: 100%;
     height: auto;
   }
-  
+
   .post-detail-table td {
     display: block; /* セルをブロック要素として表示 */
     text-align: center;
     padding: 10px;
   }
-  
+
   .post-detail-table th {
     display: none;
   }
-  
+
   .title h4 {
     font-size: 24px;
     margin-bottom: 15px;
   }
-  
+
   .text-center {
     margin-bottom: 0;
   }
@@ -48,143 +63,143 @@
   .title {
     margin-bottom: 20px;
   }
-  
+
   .items {
     width: 100%;
     text-align: center;
     margin-bottom: 15px;
   }
-  
+
   .items img {
     max-width: 100%;
     height: auto;
   }
-  
+
   .top-title{
     color: white;
     padding: 50px;
     font-size: 6px;
   }
-  
+
   .post-detail-container {
     padding: 0 15px;
     overflow-x: hidden; /* 横スクロールを非表示にする */
   }
-  
+
   .post-detail-container .col-md-12,
   .post-detail-container .col-md-5,
   .post-detail-container .col-12,
   .post-detail-container .col-8 {
-    width: 100%; 
+    width: 100%;
     padding: 0;
   }
-  
+
   .row.d-flex.justify-content-center {
     flex-wrap: wrap;
   }
-  
+
   .title {
     font-size: 18px;
     margin: 15px 0;
   }
-  
+
   .tag-box {
     text-align: center;
   }
-  
+
   .label {
     display: inline-block;
     margin: 5px;
   }
-  
+
   .mt-3.text-center {
     margin-top: 15px;
   }
-  
+
   .btn.w-25.mt-3.change_button {
     width: 100%;
   }
-  
+
   .user-edit-container {
-    padding: 0 15px; 
+    padding: 0 15px;
     overflow-x: hidden; /* 横スクロールを非表示にする */
   }
-  
+
   .user-edit-table td {
     display: block;
     text-align: center;
     padding: 10px;
   }
-  
+
   .salon-edit-container {
     padding: 0 15px;
     overflow-x: hidden; /* 横スクロールを非表示にする */
   }
-  
+
   .salon-edit-table td {
     display: block;
     text-align: center;
     padding: 10px;
   }
-  
+
   .new-post-container {
     padding: 0 15px;
     overflow-x: hidden; /* 横スクロールを非表示にする */
   }
-  
+
   .new-post-table td {
     display: block;
-    text-align: center; 
+    text-align: center;
     padding: 10px;
   }
 
   .salon-user-container {
-    padding: 0 15px; 
-    overflow-x: hidden; 
+    padding: 0 15px;
+    overflow-x: hidden;
   }
-  
+
   .salon-user-table td {
-    display: block; 
+    display: block;
     text-align: center;
-    padding: 10px; 
+    padding: 10px;
   }
-  
+
   .salon-user-edit-container {
-    padding: 0 15px; 
-    overflow-x: hidden; 
+    padding: 0 15px;
+    overflow-x: hidden;
   }
-  
+
   .salon-user-edit-table td {
-    display: block; 
-    text-align: center; 
-    padding: 10px; 
+    display: block;
+    text-align: center;
+    padding: 10px;
   }
-  
+
   .salon-user-index-container {
     padding: 10px;
     width: 100%;
     overflow-x: hidden;
   }
-  
+
   .salon-user-index-table {
     font-size: 14px;
   }
-  
+
  .calender-page .calendar-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
   }
-  
+
   .calender-page .calendar-title {
     font-size: 18px;
   }
-  
+
   .calender-page .salon-schedule-table {
     font-size: 12px;
   }
-  
+
   .calender-page .table th,
   .calender-page .table td {
     padding: 5px;
@@ -202,7 +217,7 @@
   	margin: 50px;
   	width: 100%;
   }
-  
+
   .about {
     background-image: image-url('26156942_s.jpg');
     background-size: cover;
@@ -213,7 +228,7 @@
     margin: 50px;
     width: 100%;
   }
-  
+
   .salon-top {
     background-image: image-url('26935184_s.jpg');
     background-size: cover;
@@ -226,15 +241,15 @@
   	width: 100%;
   	padding: 80px;
   }
-  
+
   .h1 {
     color: #E6E6E6;
   }
-  
+
   .wday-0 {
     background-color: #f9cece;
  }
- 
+
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
@@ -243,36 +258,36 @@
   .wday-6 {
     background-color: #bcd8ff;
   }
-  
+
   .today {
     background-color: #F7BE81;
   }
-  
+
   .like-link{
      text-decoration: none;
   }
-  
+
   .like-link:hover {
     background-color: #fff!important;
   }
-  
+
   .like-btn {
     font-size: 10px;
     color: #C0C0C0;
   }
-  
+
   .unlike-btn {
     font-size: 15px;
     color: #FF0000;
   }
-  
+
   .like {
     color: #FF0000;
   }
-  
+
   .pagination>li>a {
-    border: none; 
-    color: #696969; 
+    border: none;
+    color: #696969;
   }
 
 /* 表示しているページ番号のデザイン */
@@ -284,23 +299,23 @@
   .pagination>li>a:hover {
     border-radius: 15px;    /*角を丸くする*/
   }
-  
+
   .pagination {
     justify-content: center;
    }
-   
+
   .top-title{
     color: white;
     padding: 80px;
   }
-  
+
   .wrapper{
-    min-height: 80vh;
+    min-height: 100vh;
     position: relative;/*←相対位置*/
     padding-bottom: 120px;/*←footerの高さ*/
     box-sizing: border-box;
   }
-  
+
   footer{
     width: 100%;
     background-color: #696969;
@@ -310,28 +325,28 @@
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
   }
-  
+
   .message {
     margin-top: 70px;
     margin-bottom: 80px;
     background-color: #b0c4de;
   }
-  
+
   .segment {
     padding: 20px;
   }
-  
+
   .input-mysize-message {
     width: 100%;
     height: 300px !important;
   }
-  
+
   .item-right {
     text-align: right;
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  
+
   .item-left {
       text-align: left;
       margin-top: 5px;
@@ -340,11 +355,11 @@
       padding-left: 410px;
     }
   }
-  
+
   .clear {
     clear:both;
   }
-  
+
   div#balloon{
     display: inline-block;
     position: relative;
@@ -354,7 +369,7 @@
     border-radius: 12px;
     background: #edf1ee;
   }
-  
+
   div#balloon:before {
     display: inline-block;
     position: relative;
@@ -364,7 +379,7 @@
     border-radius: 12px;
     background: #edf1ee;
   }
-  
+
   div#balloon:after {
     content: "";
     display: inline-block;
@@ -376,7 +391,7 @@
     -webkit-transform: rotate(35deg);
     transform: rotate(35deg);
   }
-  
+
   div#balloon1{
     display: inline-block;
     position: relative;
@@ -387,7 +402,7 @@
     background: #30e852;
     font-size: 15px;
   }
-  
+
   div#balloon1:before {
     display: inline-block;
     position: relative;
@@ -398,7 +413,7 @@
     background: #30e852;
     font-size: 15px;
   }
-  
+
   div#balloon1:after {
     content: "";
     position: absolute;
@@ -409,11 +424,11 @@
     -webkit-transform: rotate(-35deg);
     transform: rotate(-35deg);
   }
-  
+
   .message-field {
     text-align: right;
   }
-  
+
   .label {
     background-color: #337ab7;
     font-weight: 500;
@@ -428,14 +443,14 @@
     vertical-align: baseline;
     border-radius: .25em;
   }
-  
+
   .box73{
     margin: 2em auto; /* ボックスの余白 */
     padding:3em 2em 2em; /* ボックス内側余白 */
     position:relative; /* 配置(ここを基準に)*/
     border: 1px solid #909792;	/* ボックスの線 (太さ　種類　色)*/
   }
-  
+
   .box73 .box-title {
   background-color:#909792; /* タイトル背景色 */
   font-size: 1em;/* タイトル文字の大きさ */
@@ -446,7 +461,7 @@
   top: 0; /*上から（0px）移動*/
   left: 0; /*左から(0px)移動*/
   }
-  
+
   .balloon-009 {
     display: flex;
     justify-content: center;
@@ -454,14 +469,14 @@
     gap: 0 22px;
     margin: 25px;
   }
-  
+
   .balloon-009 img {
     max-width: 70px;
     height: 100%;
     border: 3px solid #d6b8c8;
     border-radius: 50%;
   }
-  
+
   .balloon-009 p {
     position: relative;
     max-width: 300px;
@@ -471,7 +486,7 @@
     background-color: #f1dfdf;
     color: #333333;
   }
-  
+
   .balloon-009 p::before {
     position: absolute;
     left: -15px;
@@ -481,11 +496,11 @@
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
     content: '';
   }
-  
+
   .score-ok {
     color: #0000ff;
   }
-  
+
   .score-ng {
     color: #b22222;
   }
