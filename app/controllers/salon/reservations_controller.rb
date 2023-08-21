@@ -33,18 +33,16 @@ class Salon::ReservationsController < ApplicationController
       render :index
     end
   end
-
-  def update_status
-    @reservation = Reservation.find(params[:id])
+  
+  def update_previous_reservations_status
     new_status = params[:new_status]
+    @previous_reservations = current_user.reservations.where("day < ?", Date.today)
 
-    if @reservation.update(status: new_status)
-      flash[:success] = 'ステータスを更新しました'
-    else
-      flash[:danger] = 'ステータスの更新に失敗しました'
+    @previous_reservations.each do |reservation|
+      reservation.update(status: new_status)
     end
 
-    redirect_to salon_reservation_path(@reservation)
+    redirect_to salon_reservations_path, notice: "前の予約のステータスを更新しました。"
   end
 
   private
