@@ -22,22 +22,22 @@ class User::ReservationsController < ApplicationController
   end
 
   def create
-  @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.new(reservation_params)
 
-  # 既存の予約を取得
-  existing_reservations = Reservation.where(user_id: current_user.id)
+    # 既存の予約を取得
+    existing_reservations = Reservation.where(user_id: current_user.id)
 
-  # 予約可能かどうかチェック
-  if existing_reservations.any? { |existing| existing.start_time > Time.now }
-    flash[:danger] = '既存の予約があります。予約時間を過ぎるか、既存の予約をキャンセルしてから新しい予約を取ってください。'
-    render :new
-  elsif @reservation.save
-    flash[:success] = '予約が完了しました'
-    redirect_to reservation_path @reservation.id
-  else
-    flash[:danger] = '予約に失敗しました'
-    render :new
-  end
+    # 予約可能かどうかチェック
+    if existing_reservations.any? { |existing| existing.start_time > Time.now }
+      flash[:danger] = '既存の予約があります。予約時間を過ぎるか、既存の予約をキャンセルしてから新しい予約を取ってください。'
+      render :new
+    elsif @reservation.save
+      flash[:success] = '予約が完了しました'
+      redirect_to reservation_path @reservation.id
+    else
+      flash[:danger] = '予約に失敗しました'
+      render :new
+    end
   end
 
   def edit

@@ -34,6 +34,19 @@ class Salon::ReservationsController < ApplicationController
     end
   end
 
+  def update_status
+    @reservation = Reservation.find(params[:id])
+    new_status = params[:new_status]
+
+    if @reservation.update(status: new_status)
+      flash[:success] = 'ステータスを更新しました'
+    else
+      flash[:danger] = 'ステータスの更新に失敗しました'
+    end
+
+    redirect_to salon_reservation_path(@reservation)
+  end
+
   private
 
   def reservation_params
