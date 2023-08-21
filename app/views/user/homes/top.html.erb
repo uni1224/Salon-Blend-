@@ -8,7 +8,9 @@
       </div>
       <div>
         <h4>~New Blog~</h4>
-        <p style="display: inline;"><%= link_to "ブログページへ>", posts_path %></p>
+        <% if current_user %>
+          <p style="display: inline;"><%= link_to "ブログページへ>", posts_path %></p>
+        <% end %>
         <div>
           <% @posts.each do |post| %>
             <div class="d-inline-flex">
