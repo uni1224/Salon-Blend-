@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class User::RegistrationsController < Devise::RegistrationsController
-   before_action :configure_sign_up_params, only: [:create]
-   before_action :ensure_normal_user, only: :destroy
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :ensure_normal_user, only: :destroy
   # before_action :configure_account_update_params, only: [:update]
-  def after_sign_up_path_for(resource)
-   mypage_path
+  def after_sign_up_path_for(_resource)
+    mypage_path
   end
   # GET /resource/sign_up
   # def new
@@ -52,8 +52,8 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-  def after_sign_up_path_for(resource)
-   mypage_path
+  def after_sign_up_path_for(_resource)
+    mypage_path
   end
 
   # The path used after sign up.
@@ -66,12 +66,14 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def ensure_normal_user
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
-    end
+    return unless resource.email == 'guest@example.com'
+
+    redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana,:nick_name,:birthday,:profile_image,:postal_code, :address, :phone_number])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[first_name last_name first_name_kana last_name_kana nick_name birthday profile_image postal_code
+                                               address phone_number])
   end
 end

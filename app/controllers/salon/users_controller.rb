@@ -1,34 +1,35 @@
 class Salon::UsersController < ApplicationController
-    before_action :authenticate_salon!
-    def index
-        @users = User.all
-    end
+  before_action :authenticate_salon!
+  def index
+    @users = User.all
+  end
 
-    def show
-        @user = User.find(params[:id])
-        @user_reservations = @user.reservation.where("start_time >= ?", DateTime.current).order(day: :desc)
-        @visit_historys = @user.reservation.where("start_time < ?", DateTime.current).where("start_time > ?", DateTime.current << 12).order(day: :desc)
-    end
+  def show
+    @user = User.find(params[:id])
+    @user_reservations = @user.reservation.where('start_time >= ?', DateTime.current).order(day: :desc)
+    @visit_historys = @user.reservation.where('start_time < ?', DateTime.current).where('start_time > ?',
+                                                                                        DateTime.current << 12).order(day: :desc)
+  end
 
-    def edit
-        @user = User.find(params[:id])
-    end
+  def edit
+    @user = User.find(params[:id])
+  end
 
-    def update
-        @user = User.find(params[:id])
-    if  @user.update(user_params)
-        flash[:success] = "会員情報を変更に成功しました"
-          redirect_to salon_user_path(@user.id)
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = '会員情報を変更に成功しました'
+      redirect_to salon_user_path(@user.id)
     else
-        flash[:danger] = "会員情報の更新に失敗しました"
-          render :edit
+      flash[:danger] = '会員情報の更新に失敗しました'
+      render :edit
     end
-    end
-
+  end
 
   private
 
-    def user_params
-        params.require(:user).permit(:first_name, :last_name, :first_name_kana, :nick_name, :birthday, :last_name_kana, :postal_code, :address, :phone_number, :email, :is_deleted)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :first_name_kana, :nick_name, :birthday, :last_name_kana,
+                                 :postal_code, :address, :phone_number, :email, :is_deleted)
+  end
 end

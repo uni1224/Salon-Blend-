@@ -22,12 +22,12 @@ class User::CommentsController < ApplicationController
 
   private
 
-   def ensure_correct_user
+  def ensure_correct_user
     @comment = Comment.find(params[:id])
-    unless @comment.user == current_user
-      redirect_to posts_path, notice: "投稿者以外コメントは削除できません。"
-    end
-   end
+    return if @comment.user == current_user
+
+    redirect_to posts_path, notice: '投稿者以外コメントは削除できません。'
+  end
 
   def comment_params
     params.require(:comment).permit(:content)

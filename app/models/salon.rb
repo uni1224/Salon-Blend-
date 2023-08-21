@@ -3,14 +3,11 @@ class Salon < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   has_many :menus, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :messages, dependent: :destroy
 
-
-
-         
   validates :name, presence: true
   validates :introduction, presence: true
   validates :email, presence: true, uniqueness: true

@@ -12,7 +12,7 @@ class Salon::CommentsController < ApplicationController
 
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to salon_comments_path(params[:post_id]), notice: "不適切なコメントを削除しました。"
+    redirect_to salon_comments_path(params[:post_id]), notice: '不適切なコメントを削除しました。'
   end
 
   private

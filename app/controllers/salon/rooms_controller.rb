@@ -3,7 +3,7 @@ class Salon::RoomsController < ApplicationController
   before_action :set_room, only: :show
 
   def index
-    @reservations = Reservation.includes(:user).order(day: "DESC").all.page(params[:page]).per(10)
+    @reservations = Reservation.includes(:user).order(day: 'DESC').all.page(params[:page]).per(10)
   end
 
   def show
@@ -15,14 +15,15 @@ class Salon::RoomsController < ApplicationController
   end
 
   private
+
   def set_room
-    #予約に紐づくルームを@roomに定義
+    # 予約に紐づくルームを@roomに定義
     @room = Room.find_by(reservation_id: params[:id])
 
     # roomが存在するか判定し、存在しない場合にreservation_idを渡して作成する
-    if @room.nil?
-      @room = Room.new(reservation_id: params[:id])
-      redirect_to rooms_path, alert: 'メッセージルームに入れませんでした' unless @room.save
-    end
+    return unless @room.nil?
+
+    @room = Room.new(reservation_id: params[:id])
+    redirect_to rooms_path, alert: 'メッセージルームに入れませんでした' unless @room.save
   end
 end

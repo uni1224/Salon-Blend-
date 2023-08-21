@@ -12,7 +12,7 @@ module Vision
       image_data = image_file.download
 
       # 画像をbase64にエンコード
-     base64_image = Base64.encode64(image_data)
+      base64_image = Base64.encode64(image_data)
 
       # APIリクエスト用のJSONパラメータ
       params = {
@@ -37,11 +37,9 @@ module Vision
       response = https.request(request, params)
       response_body = JSON.parse(response.body)
       # APIレスポンス出力
-      if (error = response_body['responses'][0]['error']).present?
-        raise error['message']
-      else
-        response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
-      end
+      raise error['message'] if (error = response_body['responses'][0]['error']).present?
+
+      response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
     end
   end
 end
