@@ -1,6 +1,6 @@
 class User::HomesController < ApplicationController
   def top
-    @posts = Post.order('id DESC').limit(4)
+    @posts = Post.order('id DESC').limit(2)
   end
 
   def about
