@@ -8,8 +8,11 @@ module Vision
       # APIのURL作成
       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GOOGLE_API_KEY']}"
 
+      # 画像データを取得する
+      image_data = image_file.download
+
       # 画像をbase64にエンコード
-      base64_image = Base64.encode64(image_file.tempfile.read)
+     base64_image = Base64.encode64(image_data)
 
       # APIリクエスト用のJSONパラメータ
       params = {

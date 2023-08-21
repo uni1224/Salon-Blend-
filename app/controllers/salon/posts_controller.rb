@@ -14,20 +14,21 @@ class Salon::PostsController < ApplicationController
         @post = Post.new
     end
 
-    def create
-        @post = Post.new(post_params)
-        tags = Vision.get_image_tag(post_params[:image])
-        if @post.save
-            tags.each do |tag|
-             @post.tags.create(name: tag)
-             end
-             flash[:success] =  "投稿が完了しました"
-            redirect_to salon_post_path(@post.id)
-        else
-            flash.now[:danger] = "投稿に失敗しました"
-            render :new
-        end
+   def create
+    @post = Post.new(post_params)
+    if @post.save
+      tags = Vision.get_image_tag(@post.image) # @post.imageを渡す
+      tags.each do |tag|
+        @post.tags.create(name: tag)
+      end
+      flash[:success] = "投稿が完了しました"
+      redirect_to salon_post_path(@post.id)
+    else
+      flash.now[:danger] = "投稿に失敗しました"
+      render :new
     end
+   end
+  
 
     def edit
         @post = Post.find(params[:id])
@@ -35,7 +36,7 @@ class Salon::PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        tags = Vision.get_image_tag(post_params[:image])
+        tags = Vision.get_image_tag(@post.image)
         # 既存のタグを削除
         @post.tags.destroy_all
         # 新しいタグを追加
@@ -64,3 +65,5 @@ class Salon::PostsController < ApplicationController
          params.require(:post).permit(:title, :body, :image)
      end
 end
+ 
+ 
