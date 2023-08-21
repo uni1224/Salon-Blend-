@@ -58,9 +58,6 @@
               <td>
                 <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>
               </td>
-              <td>
-                <%= link_to '削除', reservation_path(user_reservation.id), class: "btn btn-danger",method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
-              </td>
             </tr>
             <% end %>
             <% if @user_reservations.blank? %>
