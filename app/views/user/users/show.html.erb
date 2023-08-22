@@ -47,36 +47,26 @@
           <div class="col-12 mt-3 text-center mx-auto">
 
         <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">予約日</th>
-        <th>ステータス</th> <!-- 追加 -->
-      </tr>
-    </thead>
-    <tbody>
-      <% @user_reservations.each do |user_reservation| %>
-        <tr>
-          <td>
-            <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>
-          </td>
-          <td> <!-- 追加 -->
-            <% if user_reservation.status == "来院前" %>
-              <p>来院前</p>
-            <% elsif user_reservation.status == "来店済み" %>
-              <p>来院済み</p>
-            <% elsif user_reservation.status == "不来店" %>
-              <p>不来院</p>
+          <thead>
+            <tr>
+              <th scope="col">予約日</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_reservations.each do |user_reservation| %>
+              <td>
+                <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>
+              </td>
+            </tr>
             <% end %>
-          </td>
-        </tr>
-      <% end %>
-      <% if @user_reservations.blank? %>
-        <tr>
-          <td colspan="2">予約はありません。</td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            <% if @user_reservations.blank? %>
+              <tr>
+                <td>予約はありません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
       <div class="col-12 mt-3 text-center mx-auto">
         <h3>来院履歴</h3>

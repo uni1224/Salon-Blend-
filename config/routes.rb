@@ -46,15 +46,7 @@ Rails.application.routes.draw do
     patch 'salons/out' => 'salons#out', as: 'out_salon'
     resources :posts, only: %i[index show new create edit update destroy]
     resources :comments, only: %i[index show destroy]
-    resources :reservations do
-    member do
-      patch :update_status, as: :update_status, action: :update_status
-    end
-
-    collection do
-      patch :update_previous_reservations_status
-    end
-  end
+    resources :reservations
     resources :users, only: %i[show index edit update]
     resources :rooms, only: %i[index show]
     resource :message, only: :create

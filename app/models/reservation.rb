@@ -1,7 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   has_one :room, dependent: :destroy
-  enum status: { 来院前: '来院前', 来店済み: '来院済み', 不来店: '不来院' }
 
   validate :date_before_start
   validates :start_time, uniqueness: { message: 'は他のユーザーが予約しています' }
