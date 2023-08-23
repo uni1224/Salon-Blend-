@@ -1,7 +1,15 @@
 class User::PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: 'desc').page(params[:page]).per(5)
     @comment = Comment.new
+    if params[:latest]
+      @posts = Post.latest.page(params[:page]).per(5)
+    elsif params[:old]
+      @posts = Post.old.page(params[:page]).per(5)
+    elsif params[:like_count]
+      @posts = Post.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page]).per(5)
+    else
+      @posts = Post.all.order(created_at: 'desc').page(params[:page]).per(5)
+    end
   end
 
   def show

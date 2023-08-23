@@ -9,8 +9,10 @@
       <div>
         <h4>~New Blog~</h4>
         <% if current_user %>
-          <p style="display: inline;"><%= link_to "ブログページへ>", posts_path %></p>
-        <% end %>
+        <p style="display: inline;">
+    <%= link_to "ブログページへ", posts_path, style: "text-decoration: underline; color: blue;" %>
+  </p>
+<% end %>
         <div>
           <% @posts.each do |post| %>
             <div class="d-inline-flex">

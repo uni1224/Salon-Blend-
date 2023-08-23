@@ -1,43 +1,49 @@
 <div class="blog">
-<div class="container">
-  <div class="row pt-5">
-    <div class="col-12 text-center title">
-      <h4><strong>Blog <i class="fa-solid fa-book-open"></i></strong></h4>
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-12 text-center title">
+        <h4><strong>Blog <i class="fa-solid fa-book-open"></i></strong></h4>
         <table class='table table-hover table-inverse post-detail-table'>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Date</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, size: "250x280" , class: "shadow p-3 mb-1 bg-white", style: "margin: auto;" %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to post.title, post_path(post) %>
-            </td>
-            <td>
-              <%= post.created_at.strftime('%Y/%m/%d') %>
-            </td>
-            <td><div id="post_<%= post.id %>">
-              <%= render 'post', post: post %>
-                </div>
-            </td>
-            <td><i class="fa-regular fa-comment"></i><span id="comment_count"><%= post.comments.count %></span>
-            </td>
-        <% end %>
-          </tr>
-        </tbody>
+          <%= link_to '新しい順', posts_path(latest: "true") %> |
+          <%= link_to '古い順', posts_path(old: "true") %> |
+          <%= link_to 'いいね件数順', posts_path(like_count: "true") %>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Date</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td>
+                  <%= link_to post_path(post.id) do %>
+                    <%= image_tag post.image, size: "250x280", class: "shadow p-3 mb-1 bg-white", style: "margin: auto;" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to post.title, post_path(post) %>
+                </td>
+                <td>
+                  <%= post.created_at.strftime('%Y/%m/%d') %>
+                </td>
+                <td>
+                  <div id="post_<%= post.id %>">
+                    <%= render 'post', post: post %>
+                  </div>
+                </td>
+                <td>
+                  <i class="fa-regular fa-comment"></i>
+                  <span id="comment_count"><%= post.comments.count %></span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
         </table>
+      </div>
     </div>
   </div>
- </div>
-<%= paginate @posts %>
+  <%= paginate @posts %>
 </div>
