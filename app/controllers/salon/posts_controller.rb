@@ -1,7 +1,15 @@
 class Salon::PostsController < ApplicationController
   before_action :authenticate_salon!
   def index
-    @posts = Post.all.order(created_at: 'desc').page(params[:page]).per(5)
+    @posts = if params[:latest]
+               Post.latest.page(params[:page]).per(5)
+             elsif params[:old]
+               Post.old.page(params[:page]).per(5)
+             elsif params[:like_count]
+               Post.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page]).per(5)
+             else
+               Post.all.order(created_at: 'desc').page(params[:page]).per(5)
+             end
   end
 
   def show

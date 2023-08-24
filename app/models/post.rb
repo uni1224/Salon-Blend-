@@ -13,8 +13,8 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :image, presence: true
-  
-  scope :latest, -> {order(created_at: :desc)}
-  scope :old, -> {order(created_at: :asc)}
-  scope :like_count, -> {order(like: :desc)}
+
+  scope :latest, -> { order(created_at: :desc) }
+  scope :old, -> { order(created_at: :asc) }
+  scope :like_count, -> { order(like: :desc) }
 end

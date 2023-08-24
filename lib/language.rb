@@ -21,11 +21,15 @@ module Language
       request = Net::HTTP::Post.new(uri.request_uri)
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
+      
       # APIレスポンス出力
       response_body = JSON.parse(response.body)
-      raise error['message'] if (error = response_body['error']).present?
-
-      response_body['documentSentiment']['score']
+      
+      if response_body.key?('error')
+        raise response_body['error']['message']
+      else
+        response_body['documentSentiment']['score']
+      end
     end
   end
 end

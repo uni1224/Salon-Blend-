@@ -52,9 +52,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-  def after_sign_up_path_for(_resource)
-    mypage_path
-  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
