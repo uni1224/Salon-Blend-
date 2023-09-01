@@ -1,8 +1,10 @@
 <div class = "container my-4">
   <h4><strong style="background-color:#EEEEEE;">My page<i class="fa-regular fa-user"></i></strong></h4>
-    <div class = "row">
-      <%= link_to "編集する", edit_information_path, class: "btn d-flex align-items-center ms-3", style: "background-color: #dda0dd; color: #fffafa" %>
-    </div>
+    <% unless @user.guest_user? %>
+      <div class = "row">
+        <%= link_to "編集する", edit_information_path, class: "btn d-flex align-items-center ms-3", style: "background-color: #dda0dd; color: #fffafa" %>
+      </div>
+    <% end %>
     <div class='row'>
       <table class="table table-bordered border-dark table-hover table-inverse custom-table">
         <tbody>

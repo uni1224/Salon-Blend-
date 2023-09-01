@@ -1,7 +1,8 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_current_user
-
+  before_action :ensure_guest_user, only: [:edit]
+  
   def show
     @user_reservations = current_user.reservation.where('start_time >= ?', DateTime.current).order(day: :desc)
     @visit_historys = current_user.reservation.where('start_time < ?', DateTime.current).where('start_time > ?',
@@ -49,6 +50,13 @@ class User::UsersController < ApplicationController
   def set_current_user
     @user = current_user
   end
+  
+  def ensure_guest_user
+    @user = current_user
+    if @user.guest_user?
+      redirect_to mypage_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    end
+  end  
 
   def user_params
     params.require(:user).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :nick_name, :birthday,

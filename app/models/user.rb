@@ -27,6 +27,10 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+  
+  def guest_user?
+    email == 'guest@example.com'
+  end
 
   def liked_by?(post_id)
     likes.where(post_id:).exists?
@@ -45,7 +49,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  # validates :nick_name, presence: true
+  validates :nick_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
   validates :address, presence: true
